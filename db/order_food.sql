@@ -13,17 +13,18 @@ CREATE TABLE customers (
     service VARCHAR(255)
 );
 
-CREATE TABLE restaurant_category (
-    id SERIAL PRIMARY KEY, 
-    category VARCHAR(255)
-);
-
 CREATE TABLE food (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     price INT,
     description VARCHAR(255)  
 );
+
+CREATE TABLE restaurant_category (
+    id SERIAL PRIMARY KEY, 
+    category VARCHAR(255)
+);
+
 
 CREATE TABLE restaurants (
     id SERIAL PRIMARY KEY,
@@ -34,7 +35,6 @@ CREATE TABLE restaurants (
     restaurant_category_id SERIAL REFERENCES restaurant_category(id),
     food_id SERIAL REFERENCES food(id)
 );
-
 
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY, -- this is my order number
