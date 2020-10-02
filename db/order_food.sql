@@ -39,7 +39,7 @@ CREATE TABLE restaurants (
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY, -- this is my order number
     -- order_number INT,
-    -- order_datetime DATETIME,
+    order_timestamp TIMESTAMP,
     customer_id SERIAL REFERENCES customers(id) ON DELETE CASCADE, 
     restaurant_id SERIAL REFERENCES restaurants(id) ON DELETE CASCADE
     --   review TEXT
