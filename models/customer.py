@@ -5,3 +5,4 @@ class Customer:
         self.payment = payment
         self.phone_number = phone_number
         self.service = service
+        self.id = id

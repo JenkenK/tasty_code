@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1> {{customer.name}} </h1>
 
+<h1> {{customer.name}} </h1>
+<p> Address: {{customer.address}}</p>
+<p> Payment Details: {{customer.payment}}</p>
+<p> Phone number: 0{{customer.phone_number}}</p>
+<p> Service Type: {{customer.service}}</p>
 
 {% endblock %}

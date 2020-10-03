@@ -16,19 +16,17 @@ def save(customer):
 def select_all():
     customers = []
 
-    sql = "SELECT * FROM cutomers"
+    sql = "SELECT * FROM customers"
     results = run_sql(sql)
     for row in results:
-        customer = Customer(row['name'], row['address'], row['payment'], row['phone_number'], row['service'])
+        customer = Customer(row['name'], row['address'], row['payment'], row['phone_number'], row['service'], row['id'])
         customers.append(customer)
     return customers
 
 def select(id):
-    customer = None
     sql = "SELECT * FROM customers WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
+    customer = Customer(result["name"], result["address"], result["payment"], result["phone_number"], result["service"], result["id"])
+    return customer
 
-    if result is not None:
-        customer = Customer(result['name'], result['address'], result['payment'], result['phone_number'], result['service'])
-    return customer 

@@ -10,7 +10,7 @@
     </tr>
     {% for customer in customers %}
     <tr>
-        <td><a href="/customers/{{ customer.id }}"> {{customer.name}} </a></td>
+        <td><a href="/customers/{{customer.id}}"> {{customer.name}} </a>{{customer.id}}</td>
     </tr>
     {% endfor %}
 </table>

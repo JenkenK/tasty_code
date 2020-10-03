@@ -12,6 +12,7 @@ def customers():
     return render_template("/customers/index.html", customers = customers)
 
 @customers_blueprint.route("/customers/<id>")
-def show(id):
+def show_customer(id):
     customer = customer_repositories.select(id)
-    return render_template("customers/show.html", customer = customer, orders = orders)
+    return render_template("customers/show.html", customer = customer)
+
