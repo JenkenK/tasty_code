@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Restaurant Categories</h2>
+
+{% for restaurant_category in restaurant_categories %}
+
+<section>
+    <p>{{ restaurant_category.name }}</p>
+    <a href="/restaurant_category/{{ restaurant_category.id }}/edit">Edit</a>
+    <form action="/restaurant_category/{{ restaurant_category.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+</section>
+
+{% endfor %}
+{% endblock %}
