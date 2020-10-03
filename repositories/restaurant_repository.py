@@ -15,6 +15,7 @@ def save(restaurant):
     restaurant.id = results[0]['id']
     return restaurant
 
+
 def select_all():
     restaurants=[]
 
@@ -26,3 +27,12 @@ def select_all():
         cuisine = cuisine_repository.select(row['cuisine'])
         restaurant = Restaurant(row['name'], row['address'], row['phone_number'], row['availability'], customer, cuisine)
         restaurants.append(restaurant)
+
+def delete_all():
+    sql = "DELETE FROM restaurants"
+    run_sql(sql)
+
+def delete(id):
+    sql = "DELETE FROM restaurants WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
