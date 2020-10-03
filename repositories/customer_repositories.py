@@ -23,4 +23,12 @@ def select_all():
         customers.append(customer)
     return customers
 
+def select(id):
+    customer = None
+    sql = "SELECT * FROM customers WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
 
+    if result is not None:
+        customer = Customer(result['name'], result['address'], result['payment'], result['phone_number'], result['service'])
+    return customer 
