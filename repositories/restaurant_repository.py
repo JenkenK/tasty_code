@@ -46,3 +46,11 @@ def customer(restaurant):
     results = run_sql(sql, values)[0]
     customer = Customer(results['name'], results['address'], results['payment'], results['phone_number'], results['service'], results['id'])
     return customer
+
+
+def cuisine(restaurant):
+    sql = "SELECT * FROM cuisine WHERE id = %s"
+    values = [restaurant.cuisine.id]
+    results = run_sql(sql, values)[0]
+    cuisine = Cuisine(results['cuisine'], results['id'])
+    return cuisine
