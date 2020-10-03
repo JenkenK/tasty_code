@@ -35,3 +35,9 @@ def update_restaurant_category(id):
     category = request.form['category']
     restaurant_category = RestaurantCategory(category, id)
     restaurant_category_repo.update(restaurant_category)
+
+
+@restaurant_category_blueprint.route("/restaurant_category/<id>/delete", methods=['POST'])
+def delete_restaurant_category(id):
+    restaurant_category_repo.delete(id)
+    return redirect("/restaurant_category")
