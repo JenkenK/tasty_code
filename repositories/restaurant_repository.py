@@ -14,3 +14,15 @@ def save(restaurant):
     results = run_sql( sql, values )
     restaurant.id = results[0]['id']
     return restaurant
+
+def select_all():
+    restaurants=[]
+
+    sql = "SELECT * FROM restaurants"
+    results = run_sql(sql)
+
+    for row in results:
+        customer = customer_repository.select(row['custormer'])
+        cuisine = cuisine_repository.select(row['cuisine'])
+        restaurant = Restaurant(row['name'], row['address'], row['phone_number'], row['availability'], customer, cuisine)
+        restaurants.append(restaurant)
