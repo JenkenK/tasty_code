@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS restaurants;
-DROP TABLE IF EXISTS restaurant_category;
+DROP TABLE IF EXISTS cuisines;
 DROP TABLE IF EXISTS food;
 DROP TABLE IF EXISTS customers;
 
@@ -20,9 +20,9 @@ CREATE TABLE food (
     description VARCHAR(255)  
 );
 
-CREATE TABLE restaurant_category (
+CREATE TABLE cuisines (
     id SERIAL PRIMARY KEY, 
-    category VARCHAR(255)
+    cuisine VARCHAR(255)
 );
 
 
@@ -32,7 +32,7 @@ CREATE TABLE restaurants (
     address TEXT, 
     phone_number INT, 
     availability BOOLEAN,
-    restaurant_category_id SERIAL REFERENCES restaurant_category(id),
+    cuisines_id SERIAL REFERENCES cuisines(id),
     food_id SERIAL REFERENCES food(id)
 );
 

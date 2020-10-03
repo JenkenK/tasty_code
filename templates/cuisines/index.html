@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Cuisines</h2>
+
+{% for cuisine in cuisines %}
+
+<section>
+    <p>{{ cuisine.cuisine }}</p>
+    <a href="/cuisines/{{ cuisine.id }}/edit">Edit</a>
+    <form action="/cuisines/{{ cuisine.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+</section>
+
+{% endfor %}
+{% endblock %}
