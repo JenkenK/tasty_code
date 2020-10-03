@@ -35,5 +35,5 @@ def delete(id):
 
 def update(cuisine):
     sql = "UPDATE cuisines SET name = %s WHERE id = %s"
-    values = [cuisine.name, cuisine.id]
+    values = [cuisine.cuisine, cuisine.id]
     run_sql(sql, values)
