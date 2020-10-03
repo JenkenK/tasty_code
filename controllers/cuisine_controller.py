@@ -37,9 +37,10 @@ def edit_cuisines(id):
 # UPDATE
 @cuisine_blueprint.route("/cuisines/<id>", methods=['POST'])
 def update_cuisines(id):
-    cuisine = request.form['cuisine']
+    cuisine = request.form["cuisine"]
     update_cuisine = Cuisine(cuisine, id)
     cuisine_repositories.update(update_cuisine)
+    return redirect("/cuisines")
 
 
 # DELETE
