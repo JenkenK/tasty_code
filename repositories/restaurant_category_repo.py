@@ -7,4 +7,13 @@ def save(restaurant_category):
     results = run_sql(sql, values)
     id = results[0]['id']
     restaurant_category.id = id
-    
+
+def select_all():
+    restaurant_categories = []
+    sql = "SELECT * FROM restaurant_category"
+    results = run_sql(sql)
+    for result in results:
+        restaurant_category = RestaurantCategory(result['category'], result['id'])
+        restaurant_categories.append(restaurant_category)
+    return restaurant_categories
+
