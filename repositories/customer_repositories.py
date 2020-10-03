@@ -8,4 +8,13 @@ def save(customer):
     results = run_sql(sql, values)
     customer.id = results[0]['id']
     return customer
-    
+
+def select_all():
+    customers = []
+
+    sql = "SELECT * FROM cutomers"
+    results = run_sql(sql)
+    for row in results:
+        customer = Customer(row['name'], row['address'], row['payment'], row['phone_number'], row['service'])
+        customers.append(customer)
+    return customers
