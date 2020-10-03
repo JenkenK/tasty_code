@@ -1,1 +1,17 @@
 
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Add a New Cuisine</h2>
+
+<form action="/cuisines" method="POST">
+    <div>
+        <label for="cuisine">Cuisine:</label>
+        <input type="text" id="cuisine" name="cuisine">
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}

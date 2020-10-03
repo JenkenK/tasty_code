@@ -3,3 +3,4 @@ class Food():
         self.name = name
         self.price = price
         self.description = description
+        self.id = id

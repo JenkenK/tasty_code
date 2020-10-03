@@ -4,3 +4,4 @@ class Restaurant():
         self.address = address
         self.phone_number = phone_number
         self.availability = availability
+        self.id = id

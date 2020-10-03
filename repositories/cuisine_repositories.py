@@ -20,9 +20,9 @@ def select_all():
 def select(id):
     sql = "SELECT * FROM cuisines WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)
+    result = run_sql(sql, values)[0]
     cuisine = Cuisine(result['cuisine'], result['id'])
-    return resturant_category
+    return cuisine
 
 def delete_all():
     sql = "DELETE FROM cuisines"
