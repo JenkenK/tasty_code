@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Restaurants</h1>
+
+<p>
+  <a href="/restaurants/new">New Restaurant</a>
+</p>
+
+<ul>
+  {% for restaurant in restaurants %}
+  <li>
+  <p>{{ restaurant.name }}</p>
+  <p>{{ restaurant.cuisine }}</p>
+  <p>{{ restaurant.address }}</p>
+  <p>{{ restaurant.phone_number }}</p>
+  <p>{{ restaurant.availability }}</p>
+  <!-- <p>"<i>{{visit.review}}</i>"</p> -->
+    <p>
+      <form action="/restaurants/{{ restaurants.id }}/delete" method="POST">
+        <input type="submit" value="delete" />
+      </form>
+    </p>
+  </li>
+  {% endfor %}
+</ul>
+
+
+{% endblock %}
