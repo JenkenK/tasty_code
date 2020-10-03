@@ -30,10 +30,10 @@ CREATE TABLE restaurants (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     address TEXT, 
-    phone_number INT, 
+    phone_number BIGINT, 
     availability BOOLEAN,
-    cuisines_id SERIAL REFERENCES cuisines(id),
-    food_id SERIAL REFERENCES food(id)
+    cuisines_id INT REFERENCES cuisines(id)
+    -- food_id SERIAL REFERENCES food(id)
 );
 
 CREATE TABLE orders (

@@ -2,11 +2,14 @@ from flask import Flask, render_template
 
 from controllers.customer_controller import customers_blueprint
 from controllers.cuisine_controller import cuisine_blueprint
+from controllers.restaurant_controller import register_blueprint
 
 app = Flask(__name__)
 
 app.register_blueprint(customers_blueprint)
 app.register_blueprint(cuisine_blueprint)
+app.register_blueprint(register_blueprint)
+
 
 
 @app.route('/')

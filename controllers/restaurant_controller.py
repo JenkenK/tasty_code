@@ -13,4 +13,4 @@ restaurant_blueprint = Blueprint("restaurant", __name__)
 def restaurants():
     restaurants = restaurant_repository.select_all()
     return render_template("/restaurant/index.html", restaurants = restaurants)
-    
+
