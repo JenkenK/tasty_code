@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS cuisines;
 DROP TABLE IF EXISTS food;
 DROP TABLE IF EXISTS customers;
 
+
 CREATE TABLE customers (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
@@ -12,6 +13,7 @@ CREATE TABLE customers (
     phone_number BIGINT, ---can use varchar(15) and strip out all non-numeric data
     service VARCHAR(255)
 );
+
 
 CREATE TABLE food (
     id SERIAL PRIMARY KEY,
@@ -35,6 +37,7 @@ CREATE TABLE restaurants (
     cuisines_id INT REFERENCES cuisines(id)
     -- food_id SERIAL REFERENCES food(id)
 );
+
 
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY, -- this is my order number
