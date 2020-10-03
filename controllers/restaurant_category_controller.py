@@ -28,3 +28,10 @@ def create_restaurant_category():
 def edit_restaurant_category(id):
     restaurant_category = restaurant_category_repo.select(id)
     return render_template('restaurant_category/edit.html', restaurant_category=restaurant_category)
+
+
+@restaurant_category_blueprint.route("/restaurant_category/<id>", methods=['POST'])
+def update_restaurant_category(id):
+    category = request.form['category']
+    restaurant_category = RestaurantCategory(category, id)
+    restaurant_category_repo.update(restaurant_category)
