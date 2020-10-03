@@ -1,6 +1,10 @@
 from flask import Flask, render_template
 
+from controllers.customer_controller import customers_blueprint
+
 app = Flask(__name__)
+
+app.register_blueprint(customers_blueprint)
 
 @app.route('/')
 def home():

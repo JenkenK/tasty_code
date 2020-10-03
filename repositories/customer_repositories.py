@@ -3,7 +3,7 @@ from db.run_sql import run_sql
 from models.customer import Customer
 
 def delete_all():
-    sql = "DELETE FROM users"
+    sql = "DELETE FROM customers"
     run_sql(sql)
 
 def save(customer):
@@ -22,3 +22,5 @@ def select_all():
         customer = Customer(row['name'], row['address'], row['payment'], row['phone_number'], row['service'])
         customers.append(customer)
     return customers
+
+

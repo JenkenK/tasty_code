@@ -9,7 +9,7 @@ CREATE TABLE customers (
     name VARCHAR(255),
     address TEXT,
     payment VARCHAR(255),
-    phone_number BIGINT,
+    phone_number BIGINT, ---can use varchar(15) and strip out all non-numeric data
     service VARCHAR(255)
 );
 
@@ -39,7 +39,7 @@ CREATE TABLE restaurants (
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY, -- this is my order number
     -- order_number INT,
-    order_timestamp TIMESTAMP, ---DEFAULT NOW,
+    order_timestamp TIMESTAMP, ---DEFAULT NOW, try include time of order from now
     customer_id SERIAL REFERENCES customers(id) ON DELETE CASCADE, 
     restaurant_id SERIAL REFERENCES restaurants(id) ON DELETE CASCADE
     --   review TEXT
