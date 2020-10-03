@@ -24,3 +24,7 @@ def create_restaurant_category():
     return redirect("/restaurant_category")
 
 
+@restaurant_category_blueprint.route("/restaurant_category/<id>/edit")
+def edit_restaurant_category(id):
+    restaurant_category = restaurant_category_repo.select(id)
+    return render_template('restaurant_category/edit.html', restaurant_category=restaurant_category)
