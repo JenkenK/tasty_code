@@ -1,5 +1,4 @@
-from flask import Flask, render_template, request, redirect
-from flask import Blueprint
+from flask import Blueprint, Flask, redirect, render_template, request
 
 from models.customer import Customer
 import repositories.customer_repositories as customer_repositories
