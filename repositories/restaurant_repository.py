@@ -28,11 +28,21 @@ def select_all():
         restaurant = Restaurant(row['name'], row['address'], row['phone_number'], row['availability'], customer, cuisine)
         restaurants.append(restaurant)
 
+
 def delete_all():
     sql = "DELETE FROM restaurants"
     run_sql(sql)
+
 
 def delete(id):
     sql = "DELETE FROM restaurants WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
+
+def customer(restaurant):
+    sql = "SELECT * FROM customer WHERE id = %s"
+    values = [restaurant.customer.id]
+    results = run_sql(sql, values)[0]
+    customer = Customer(results['name'], results['address'], results['payment'], results['phone_number'], results['service'], results['id'])
+    return customer
