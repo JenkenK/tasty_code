@@ -23,3 +23,7 @@ def select(id):
     result = run_sql(sql, values)
     resturant_category = RestaurantCategory(result['category'], result['id'])
     return resturant_category
+
+def delete_all():
+    sql = "DELETE FROM restaurant"
+    run_sql(sql)
