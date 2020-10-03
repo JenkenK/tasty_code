@@ -17,3 +17,9 @@ def select_all():
         restaurant_categories.append(restaurant_category)
     return restaurant_categories
 
+def select(id):
+    sql = "SELECT * FROM restaurant_category WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)
+    resturant_category = RestaurantCategory(result['category'], result['id'])
+    return resturant_category
