@@ -21,4 +21,6 @@ def new_restaurant():
     cuisines = cuisine_repository.select_all()
     return render_template("/restaurants/new.html", cuisines = cuisines)
 
-    
+
+# CREATE
+# @restaurant_blueprint.route("/restaurants", methods=['POST'])

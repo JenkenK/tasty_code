@@ -23,7 +23,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        cuisine = cuisine_repository.select(row['cuisine'])
+        cuisine = cuisine_repository.select(row['cuisine_id'])
         restaurant = Restaurant(row['name'], row['address'], row['phone_number'], row['availability'], cuisine)
         restaurants.append(restaurant)
     return restaurants

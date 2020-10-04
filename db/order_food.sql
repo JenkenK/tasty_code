@@ -34,7 +34,7 @@ CREATE TABLE restaurants (
     address TEXT, 
     phone_number BIGINT, 
     availability BOOLEAN,
-    cuisines_id INT REFERENCES cuisines(id)
+    cuisine_id SERIAL REFERENCES cuisines(id) ON DELETE CASCADE
     -- food_id SERIAL REFERENCES food(id)
 );
 
