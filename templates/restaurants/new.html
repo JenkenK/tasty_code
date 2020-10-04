@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add a Restaurant</h1>
+
+<form action="/restaurants" method="post">
+  <label for="cuisine">Select a Cuisine:</label>
+    <select name="cuisine_id" id="cuisine">
+      {% for cuisine in cuisines %}
+      <option value="{{ cuisine.id }}">{{ cuisine.cuisine }}</option>
+      {% endfor %}
+    </select>
+  
+  <input type='submit'>
+</form>
+
+{% endblock %}

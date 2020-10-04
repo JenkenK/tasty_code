@@ -8,9 +8,17 @@ import repositories.customer_repository as customer_repository
 restaurant_blueprint = Blueprint("restaurant", __name__)
 
 
-#INDEX
-@restaurant_blueprint.route("/restaurant")
+# INDEX
+@restaurant_blueprint.route("/restaurants")
 def restaurants():
     restaurants = restaurant_repository.select_all()
-    return render_template("/restaurant/index.html", restaurants = restaurants)
+    return render_template("/restaurants/index.html", restaurants = restaurants)
 
+
+# NEW
+@restaurant_blueprint.route("/restaurants/new", methods=['GET'])
+def new_restaurant():
+    cuisines = cuisine_repository.select_all()
+    return render_template("/restaurants/new.html", cuisines = cuisines)
+
+    
