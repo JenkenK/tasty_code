@@ -2,12 +2,14 @@ from db.run_sql import run_sql
 
 from models.cuisine import Cuisine
 
+
 def save(cuisine):
     sql = "INSERT INTO cuisines (cuisine) VALUES (%s) RETURNING *"
     values = [cuisine.cuisine]
     results = run_sql(sql, values)
     id = results[0]['id']
     cuisine.id = id
+
 
 def select_all():
     cuisines = []
@@ -18,6 +20,7 @@ def select_all():
         cuisines.append(cuisine)
     return cuisines
 
+
 def select(id):
     sql = "SELECT * FROM cuisines WHERE id = %s"
     values = [id]
@@ -25,14 +28,17 @@ def select(id):
     cuisine = Cuisine(result['cuisine'], result['id'])
     return cuisine
 
+
 def delete_all():
     sql = "DELETE FROM cuisines"
     run_sql(sql)
+
 
 def delete(id):
     sql = "DELETE FROM cuisines WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
 
 def update(cuisine):
     sql = "UPDATE cuisines SET cuisine = %s WHERE id = %s"

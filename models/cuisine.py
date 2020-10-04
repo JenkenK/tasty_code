@@ -1,4 +1,4 @@
 class Cuisine():
-    def __init__(self, cuisine, id=None):
+    def __init__(self, cuisine, cuisine_id=None):
         self.cuisine = cuisine
-        self.id = id
+        self.id = cuisine_id

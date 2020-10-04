@@ -34,10 +34,35 @@ def create_restaurant():
 
     cuisine = cuisine_repository.select(cuisine_id)   
 
-    new_restaurant = Restaurant(name, address, phone_number, availability, cuisine)
+    new_restaurant = Restaurant(name, address, phone_number, availability, cuisine_id)
 
     restaurant_repository.save(new_restaurant)
     return redirect('/restaurants')
+
+
+# EDIT
+@restaurant_blueprint.route("/restaurants/<restaurant_id>/edit")
+def edit_restaurant(restaurant_id):
+    restaurant = restaurant_repository.select(restaurant_id)
+    cuisines = cuisine_repository.select_all()
+    return render_template('restaurants/edit.html', restaurant=restaurant, cuisines=cuisines)
+
+
+# UPDATE
+@restaurant_blueprint.route("/restaurants/<restaurant_id>", methods=['POST'])
+def update_restaurant(restaurant_id):
+    print(restaurant_id)
+    restaurant = request.form["restaurant"]
+    cuisine_id = request.form["cuisine_id"]
+    address = request.form["address"]
+    phone_number = request.form["phone_number"]
+    availability = request.form["availability"]
+
+    cuisine = cuisine_repository.select(cuisine_id)
+
+    update_restaurant = Restaurant(restaurant, address, phone_number, availability, cuisine_id, restaurant_id)
+    restaurant_repository.update(update_restaurant)
+    return redirect("/restaurants")
 
 
 # DELETE
@@ -45,4 +70,3 @@ def create_restaurant():
 def delete_restuarant(id):
     restaurant_repository.delete(id)
     return redirect('/restaurants')
-
