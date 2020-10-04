@@ -38,3 +38,11 @@ def create_restaurant():
 
     restaurant_repository.save(new_restaurant)
     return redirect('/restaurants')
+
+
+# DELETE
+@restaurant_blueprint.route('/restaurants/<id>/delete', methods=['POST'])
+def delete_restuarant(id):
+    restaurant_repository.delete(id)
+    return redirect('/restaurants')
+

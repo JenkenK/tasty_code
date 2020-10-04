@@ -24,7 +24,7 @@ def select_all():
 
     for row in results:
         cuisine = cuisine_repository.select(row['cuisine_id'])
-        restaurant = Restaurant(row['name'], row['address'], row['phone_number'], row['availability'], cuisine)
+        restaurant = Restaurant(row['name'], row['address'], row['phone_number'], row['availability'], cuisine, row['id'])
         restaurants.append(restaurant)
     return restaurants
 
