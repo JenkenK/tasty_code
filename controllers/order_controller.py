@@ -47,17 +47,20 @@ def edit_order(order_id):
     order = order_repository.select(order_id)
     restaurants = restaurant_repository.select_all()
     customers = customer_repository.select_all()
-    return render_template('orders/edit.html', restaurant=restaurant, customers=customers)
+    return render_template('orders/edit.html', order=order, restaurants=restaurants, customers=customers)
     
 
 # UPDATE
 @order_blueprint.route("/orders/<order_id>", methods=['POST'])
 def update_order(order_id):
     timestamp = request.form["order_timestamp"]
-    customer = request.form["customer"]
-    restaurant = request.form["restaurant"]
+    customer_id = request.form["customer"]
+    restaurant_id = request.form["restaurant"]
 
-    update_order = Order(timestamp, customer, restaurant)
+    customer = customer_repository.select(customer_id)    
+    restaurant = restaurant_repository.select(restaurant_id)
+
+    update_order = Order(timestamp, customer, restaurant, order_id)
     order_repository.update(update_order)
     return redirect("/orders")
 

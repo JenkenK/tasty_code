@@ -10,7 +10,7 @@
 <ul>
   {% for restaurant in restaurants %}
   <li>
-      <p>{{ restaurant.name }} - {{ restaurant.cuisine_id.cuisine }}</p>
+      <p>{{ restaurant.name }} - {{ restaurant.cuisine.cuisine }}</p>
       <p>{{ restaurant.address }}</p>
       <p>{{ restaurant.phone_number }}</p>
       <p>{{ restaurant.availability }}</p>

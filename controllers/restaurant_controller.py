@@ -32,7 +32,9 @@ def create_restaurant():
     phone_number = request.form['phone_number']
     availability = request.form['availability']
 
-    new_restaurant = Restaurant(name, address, phone_number, availability, cuisine_id)
+    cuisine = cuisine_repository.select(cuisine_id)
+
+    new_restaurant = Restaurant(name, address, phone_number, availability, cuisine)
 
     restaurant_repository.save(new_restaurant)
     return redirect('/restaurants')
@@ -55,7 +57,9 @@ def update_restaurant(restaurant_id):
     phone_number = request.form["phone_number"]
     availability = request.form["availability"]
 
-    update_restaurant = Restaurant(restaurant, address, phone_number, availability, cuisine_id, restaurant_id)
+    cuisine = cuisine_repository.select(cuisine_id)
+
+    update_restaurant = Restaurant(restaurant, address, phone_number, availability, cuisine, restaurant_id)
     restaurant_repository.update(update_restaurant)
     return redirect("/restaurants")
 

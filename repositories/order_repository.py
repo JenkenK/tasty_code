@@ -26,7 +26,7 @@ def select_all():
         restaurant = restaurant_repository.select(result['restaurant_id'])
         customer = customer_repository.select(result['customer_id'])
         timestamp = result['order_timestamp']
-        order = Order(timestamp, customer, restaurant)
+        order = Order(timestamp, customer, restaurant, result['id'])
         orders.append(order)
     return orders
 
@@ -35,7 +35,7 @@ def select(order_id):
     sql = "SELECT * FROM orders WHERE id = %s"
     values = [order_id]
     result = run_sql(sql, values)[0]
-    order = Order(result['order_timestamp'], result['customer_id'], result['restaurant_id'])
+    order = Order(result['order_timestamp'], result['customer_id'], result['restaurant_id'], result['id'])
     return order
 
 
@@ -52,5 +52,6 @@ def delete(id):
 
 def update(order):
     sql = "UPDATE orders SET (order_timestamp, customer_id, restaurant_id) = (%s, %s, %s) WHERE id = (%s)"
-    values = [order.order_timestamp, order.customer_id, order.restaurant_id]
+    values = [order.order_timestamp, order.customer.id, order.restaurant.id, order.id]
     run_sql(sql, values)
+

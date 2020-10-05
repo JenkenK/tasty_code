@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block content %}
 
 <h2>Update Order</h2>
@@ -15,7 +16,7 @@
             <label for="customer">Select a Customer:</label>
             <select name="customer" id="customer">
               {% for customer in customers %}
-              <option value="{{ customer.id }}" {% if order.customer_id == customer.id %} selected="selected"{% endif %}>{{ customer.name }}</option>
+              <option value="{{ customer.id }}" {% if order.customer == customer.id %} selected="selected"{% endif %}>{{ customer.name }}</option>
               {% endfor %}
             </select>
         </section>
@@ -24,7 +25,7 @@
             <label for="restaurant">Select a Restaurant:</label>
             <select name="restaurant" id="restaurant">
               {% for restaurant in restaurants %}
-              <option value="{{ restaurant.id }}">{{ restaurant.name }}</option>
+              <option value="{{ restaurant.id }}" {% if order.restaurant == restaurant.id %} selected="selected"{% endif %}>{{ restaurant.name }}</option>
               {% endfor %}
             </select>
         </section>

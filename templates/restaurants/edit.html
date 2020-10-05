@@ -14,7 +14,7 @@
             <label for="cuisine">Cuisine:</label>
             <select name="cuisine_id" id="cuisine">
                 {% for cuisine in cuisines %}
-                <option value="{{ cuisine.id }}" {% if restaurant.cuisine_id == cuisine.id %} selected="selected"{% endif %} >{{ cuisine.cuisine }}</option>
+                <option value="{{ cuisine.id }}" {% if restaurant.cuisine == cuisine.id %} selected="selected"{% endif %} >{{ cuisine.cuisine }}</option>
                 {% endfor %}
             </select>
         </section>

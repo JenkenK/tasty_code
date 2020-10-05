@@ -10,7 +10,7 @@ import repositories.customer_repository as customer_repository
 
 def save(restaurant):
     sql = "INSERT INTO restaurants ( name, address, phone_number, availability, cuisine_id ) VALUES ( %s, %s, %s,%s, %s) RETURNING id"
-    values = [restaurant.name, restaurant.address, restaurant.phone_number, restaurant.availability, restaurant.cuisine_id.id]
+    values = [restaurant.name, restaurant.address, restaurant.phone_number, restaurant.availability, restaurant.cuisine.id]
     results = run_sql(sql, values)
     restaurant.id = results[0]['id']
     return restaurant
@@ -50,7 +50,7 @@ def delete(id):
 
 def update(restaurant):
     sql = "UPDATE restaurants SET (name, address, phone_number, availability, cuisine_id ) = (%s, %s, %s, %s, %s) WHERE id = (%s)"
-    values = [restaurant.name, restaurant.address, restaurant.phone_number, restaurant.availability, restaurant.cuisine_id.id, restaurant.id]
+    values = [restaurant.name, restaurant.address, restaurant.phone_number, restaurant.availability, restaurant.cuisine.id, restaurant.id]
     run_sql(sql, values)
 
 
