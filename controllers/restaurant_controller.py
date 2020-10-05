@@ -32,8 +32,6 @@ def create_restaurant():
     phone_number = request.form['phone_number']
     availability = request.form['availability']
 
-    cuisine = cuisine_repository.select(cuisine_id)   
-
     new_restaurant = Restaurant(name, address, phone_number, availability, cuisine_id)
 
     restaurant_repository.save(new_restaurant)
