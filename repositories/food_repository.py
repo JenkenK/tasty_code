@@ -20,6 +20,14 @@ def select_all():
     results = run_sql(sql)
 
     for result in results:
-        food = Food(result['name'], result['price'], result['description'])
+        food = Food(result['name'], result['price'], result['description'], result['id'])
         foods.append(food)
     return foods
+
+
+def select(food_id):
+    sql = "SELECT * FROM foods WHERE id = %s"
+    values = [food_id]
+    result = run_sql(sql, values)[0]
+    food = Food(result['name'], result['price'], result['description'], result['id'])
+    return food
