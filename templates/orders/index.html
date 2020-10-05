@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Orders</h1>
+
+<p>
+  <a href="/orders/new">New Order</a>
+</p>
+
+<ul>
+  {% for order in orders %}
+  <li>
+      <p>{{ order.customer_id.name }}</p>
+      <p></p>
+
+      <section>
+          <a href="/orders/{{ order.id }}/edit">Edit</a>
+          <form action="/orders/{{ order.id }}/delete" method="POST">
+            <input type="submit" value="Delete"/>
+        </form>
+    </section>
+</li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}

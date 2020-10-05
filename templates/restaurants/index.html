@@ -10,19 +10,19 @@
 <ul>
   {% for restaurant in restaurants %}
   <li>
-  <p>{{ restaurant.name }} - {{ restaurant.cuisine_id.cuisine }}</p>
-  <p>{{ restaurant.address }}</p>
-  <p>{{ restaurant.phone_number }}</p>
-  <p>{{ restaurant.availability }}</p>
-
-    <section>
-        <a href="/restaurants/{{ restaurant.id }}/edit">Edit</a>
-        <form action="/restaurants/{{ restaurant.id }}/delete" method="POST">
+      <p>{{ restaurant.name }} - {{ restaurant.cuisine_id.cuisine }}</p>
+      <p>{{ restaurant.address }}</p>
+      <p>{{ restaurant.phone_number }}</p>
+      <p>{{ restaurant.availability }}</p>
+      
+      <section>
+          <a href="/restaurants/{{ restaurant.id }}/edit">Edit</a>
+          <form action="/restaurants/{{ restaurant.id }}/delete" method="POST">
             <input type="submit" value="Delete"/>
         </form>
     </section>
-  </li>
-  {% endfor %}
+</li>
+{% endfor %}
 </ul>
 
 
