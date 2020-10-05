@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS dishes;
 DROP TABLE IF EXISTS restaurants;
 DROP TABLE IF EXISTS cuisines;
-DROP TABLE IF EXISTS dishes;
 DROP TABLE IF EXISTS customers;
 
 
@@ -14,13 +14,6 @@ CREATE TABLE customers (
     service VARCHAR(255)
 );
 
-
-CREATE TABLE dishes (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    price FLOAT,
-    description VARCHAR(255)  
-);
 
 CREATE TABLE cuisines (
     id SERIAL PRIMARY KEY, 
@@ -36,6 +29,15 @@ CREATE TABLE restaurants (
     availability BOOLEAN,
     cuisine_id SERIAL REFERENCES cuisines(id) ON DELETE CASCADE
     -- food_id SERIAL REFERENCES food(id)
+);
+
+
+CREATE TABLE dishes (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    price FLOAT,
+    description VARCHAR(255),
+    restaurant_id SERIAL REFERENCES restaurants(id) ON DELETE CASCADE
 );
 
 

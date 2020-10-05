@@ -36,5 +36,5 @@ order_repository.save(order1)
 order2 = Order("2020-10-05 11:12:20", customer1, mcdonalds )
 order_repository.save(order2)
 
-burger = Dish("Cheeseburger", 0.99, "A burger with cheese")
+burger = Dish("Cheeseburger", 0.99, "A burger with cheese", mcdonalds)
 dish_repository.save(burger)
