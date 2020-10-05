@@ -24,3 +24,13 @@ def new_dish():
 @dish_blueprint.route("/dishes", methods=["POST"])
 def create_dish():
     pass
+
+# EDIT
+@dish_blueprint.route("/dishes/<id>/edit")
+def edit_dish(id):
+    dish = dish_repository.select(id)
+    return render_template('dishes/edit.html', dish = dish)
+
+    
+# UPDATE
+# DELETE
