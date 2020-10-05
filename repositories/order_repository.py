@@ -26,7 +26,6 @@ def select_all():
         restaurant = restaurant_repository.select(result['restaurant_id'])
         customer = customer_repository.select(result['customer_id'])
         timestamp = result['order_timestamp']
-        print(timestamp)
         order = Order(timestamp, customer, restaurant)
         orders.append(order)
     return orders
