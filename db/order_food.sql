@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS restaurants;
 DROP TABLE IF EXISTS cuisines;
-DROP TABLE IF EXISTS foods;
+DROP TABLE IF EXISTS dishes;
 DROP TABLE IF EXISTS customers;
 
 
@@ -15,7 +15,7 @@ CREATE TABLE customers (
 );
 
 
-CREATE TABLE foods (
+CREATE TABLE dishes (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     price INT,
