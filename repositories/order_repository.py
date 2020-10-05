@@ -15,6 +15,7 @@ def save(order):
     order.id = results[0]['id']
     return order
 
+
 def select_all():
     orders=[]
 
@@ -29,4 +30,13 @@ def select_all():
         order = Order(timestamp, customer, restaurant)
         orders.append(order)
     return orders
+
+
+def select(order_id):
+    sql = "SELECT * FROM orders WHERE id = %s"
+    values = [order_id]
+    result = run_sql(sql, values)[0]
+    order = Order(result['order_timestamp'], result['customer_id'], result['restaurant_id'])
+    return order
+
 

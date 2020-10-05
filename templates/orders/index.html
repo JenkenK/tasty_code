@@ -7,21 +7,22 @@
   <a href="/orders/new">New Order</a>
 </p>
 
+{% for order in orders %}
+<p>Order for: {{ order.customer_id.name }}</p>
 <ul>
-  {% for order in orders %}
   <li>
-      <p>{{ order.customer_id.name }}</p>
-      <p></p>
+        <p>Restaurant: {{order.restaurant_id.name}}</p>
+        <p>Order time: {{order.order_timestamp}}</p>
 
-      <section>
-          <a href="/orders/{{ order.id }}/edit">Edit</a>
-          <form action="/orders/{{ order.id }}/delete" method="POST">
-            <input type="submit" value="Delete"/>
-        </form>
-    </section>
-</li>
-{% endfor %}
+        <section>
+            <a href="/orders/{{ order.id }}/edit">Edit</a>
+            <form action="/orders/{{ order.id }}/delete" method="POST">
+                <input type="submit" value="Delete"/>
+            </form>
+        </section>
+    </li>
 </ul>
+{% endfor %}
 
 
 {% endblock %}

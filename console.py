@@ -20,7 +20,7 @@ chinese = Cuisine("Chinese")
 cuisine_repository.save(chinese)
 japanese = Cuisine("Japanese")
 cuisine_repository.save(japanese)
-fast_food = Cuisine("Fast Food")
+fast_food = Cuisine(w"Fast Food")
 cuisine_repository.save(fast_food)
 
 mcdonalds = Restaurant("McDonalds", "137 Princes St", "01312263872", True, fast_food)
@@ -28,3 +28,6 @@ restaurant_repository.save(mcdonalds)
 
 order1 = Order("2020-10-05 10:54:40", customer1, mcdonalds)
 order_repository.save(order1)
+
+order2 = Order("2020-10-05 11:12:20", customer1, mcdonalds )
+order_repository.save(order2)
