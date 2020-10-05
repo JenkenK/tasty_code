@@ -49,14 +49,11 @@ def edit_restaurant(restaurant_id):
 # UPDATE
 @restaurant_blueprint.route("/restaurants/<restaurant_id>", methods=['POST'])
 def update_restaurant(restaurant_id):
-    print(restaurant_id)
     restaurant = request.form["restaurant"]
     cuisine_id = request.form["cuisine_id"]
     address = request.form["address"]
     phone_number = request.form["phone_number"]
     availability = request.form["availability"]
-
-    cuisine = cuisine_repository.select(cuisine_id)
 
     update_restaurant = Restaurant(restaurant, address, phone_number, availability, cuisine_id, restaurant_id)
     restaurant_repository.update(update_restaurant)
