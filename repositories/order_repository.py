@@ -50,3 +50,8 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
+
+def update(order):
+    sql = "UPDATE orders SET (order_timestamp, customer_id, restaurant_id) = (%s, %s, %s) WHERE id = (%s)"
+    values = [order.order_timestamp, order.customer_id, order.restaurant_id]
+    run_sql(sql, values)
