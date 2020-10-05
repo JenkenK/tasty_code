@@ -45,3 +45,7 @@ def update_dish(id):
 
 
 # DELETE
+@dish_blueprint.route("/dishes/<id>/delete", methods=['POST'])
+def delete_dish(id):
+    dish_repository.delete(id)
+    return redirect("/dishes")
