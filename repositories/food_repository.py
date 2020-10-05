@@ -42,3 +42,9 @@ def delete(id):
     sql = "DELETE FROM foods WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
+
+def update(order):
+    sql = "UPDATE foods SET (name, price, description) = (%s, %s, %s) WHERE id = (%s)"
+    values = [order.name, order.price, order.description, order.id]
+    run_sql(sql, values)
