@@ -12,4 +12,14 @@ def save(food):
     food.id = results[0]['id']
     return food
 
-    
+
+def select_all():
+    foods=[]
+
+    sql = "SELECT * FROM foods"
+    results = run_sql(sql)
+
+    for result in results:
+        food = Food(result['name'], result['price'], result['description'])
+        foods.append(food)
+    return foods
