@@ -12,3 +12,10 @@ order_blueprint = Blueprint("order", __name__)
 def orders():
     orders = order_repository.select_all()
     return render_template("/orders/index.html", orders = orders)
+
+
+# NEW
+@order_blueprint.route('/orders/new', methods=['GET'])
+def new_order():
+    orders = order_repository.select_all()
+    return render_template("/orders.new.html", orders = orders)
