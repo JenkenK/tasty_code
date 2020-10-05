@@ -31,3 +31,14 @@ def select(food_id):
     result = run_sql(sql, values)[0]
     food = Food(result['name'], result['price'], result['description'], result['id'])
     return food
+
+
+def delete_all():
+    sql = "DELETE FROM foods"
+    run_sql(sql)
+
+
+def delete(id):
+    sql = "DELETE FROM foods WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
