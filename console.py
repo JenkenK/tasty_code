@@ -12,6 +12,7 @@ import repositories.order_repository as order_repository
 customer_repository.delete_all()
 cuisine_repository.delete_all()
 restaurant_repository.delete_all()
+order_repository.delete_all()
 
 customer1 = Customer("Jenken", "1 Street Name", "Card", "07123456789", "Delivery")
 customer_repository.save(customer1)
