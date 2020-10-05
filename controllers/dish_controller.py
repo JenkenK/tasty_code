@@ -1,30 +1,26 @@
 from flask import Blueprint, Flask, redirect, render_template, request
 
-from models.food import Food
+from models.dish import Dish
 
-import repositories.order_repository as order_repository
 import repositories.dish_repository as dish_repository
 
 dish_blueprint = Blueprint("dish", __name__)
 
 
 # INDEX
-@food_blueprint.route('/foods')
-def foods():
-    foods = food_repository.select_all()
-    return render_template("foods/index.html", foods = foods)
+@dish_blueprint.route('/dishes')
+def dishes():
+    dishes = dish_repository.select_all()
+    return render_template("dishes/index.html", dishes = dishes)
 
 
 # NEW
-@food_blueprint.route('/foods/new', methods=['GET'])
+@dish_blueprint.route('/dishes/new', methods=['GET'])
 def new_dish():
-    return render_template("/foods/new.html")
+    return render_template("dishes/new.html")
 
 
 # CREATE
-@food_blueprint.route("/foods", methods=["POST"])
+@dish_blueprint.route("/dishes", methods=["POST"])
 def create_dish():
-    food = request.form['cui']
-    new_cuisine = Cuisine(cuisine)
-    cuisine_repository.save(new_cuisine)
-    return redirect("/cuisines")
+    pass
