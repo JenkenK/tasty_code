@@ -3,27 +3,31 @@
 
 <h2>Update Order</h2>
 
-CHANGE BELOW
-<form action="/orders/{{ restaurant.id }}" method="POST">
+
+<form action="/orders/{{ order.id }}" method="POST">
     <div>
-        <label for="restaurant">Name:</label>
-        <input type="text" id="restaurant" name="restaurant" value="{{ restaurant.name }}">
+        <section>
+            <label for="order_timestamp">Order Time:</label>
+            <input type="datetime-local" id="order_timestamp" name="order_timestamp" value="{{ order.order_timestamp }}">
+        </section>
 
-        <label for="cuisine">Cuisine:</label>
-        <select name="cuisine_id" id="cuisine">
-            {% for cuisine in cuisines %}
-            <option value="{{ cuisine.id }}" {% if restaurant.cuisine_id == cuisine.id %} selected="selected"{% endif %} >{{ cuisine.cuisine }}</option>
-            {% endfor %}
-        </select>
+        <section>
+            <label for="customer">Select a Customer:</label>
+            <select name="customer_id" id="customer">
+              {% for customer in customers %}
+              <option value="{{ customer.id }}" {% if order.customer_id == customer.id %} selected="selected"{% endif %}>{{ customer.name }}</option>
+              {% endfor %}
+            </select>
+        </section>
 
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" value="{{ restaurant.address }}">
-
-        <label for="phone_number">Phone Number:</label>
-        <input type="text" id="phone_number" name="phone_number" value="{{ restaurant.phone_number }}">
-
-        <label for="availability">Availability:</label>
-        <input type="checkbox" id="availability" name="availability" checked="{{ restaurant.availability }}" value="{{ restaurant.availability }}">
+        <section>
+            <label for="restaurant">Select a Restaurant:</label>
+            <select name="restaurant_id" id="restaurant">
+              {% for restaurant in restaurants %}
+              <option value="{{ restaurant.id }}">{{ restaurant.name }}</option>
+              {% endfor %}
+            </select>
+        </section>
 
         <input type="submit">
     </div>

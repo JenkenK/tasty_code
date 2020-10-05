@@ -60,7 +60,7 @@ def update_order(order_id):
 
 
 # DELETE
-@order_blueprint.route('/orders/<id>/delete', methods=['POST'])
-def delete_ordre(order_id):
+@order_blueprint.route('/orders/<order_id>/delete', methods=['POST'])
+def delete_order(order_id):
     order_repository.delete(order_id)
     return redirect('/orders')
