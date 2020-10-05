@@ -18,7 +18,7 @@ CREATE TABLE customers (
 CREATE TABLE dishes (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    price INT,
+    price FLOAT,
     description VARCHAR(255)  
 );
 
