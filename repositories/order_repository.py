@@ -40,3 +40,13 @@ def select(order_id):
     return order
 
 
+def delete_all():
+    sql = "DELETE FROM orders"
+    run_sql(sql)
+
+
+def delete(id):
+    sql = "DELETE FROM orders WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
