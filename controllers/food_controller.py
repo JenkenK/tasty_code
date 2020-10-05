@@ -12,5 +12,11 @@ food_blueprint = Blueprint("food", __name__)
 @food_blueprint.route('/foods')
 def foods():
     foods = food_repository.select_all()
-    return render_template("/foods", foods = foods)
+    return render_template("foods/index.html", foods = foods)
+
+
+# NEW
+@food_blueprint.route('/foods/new', methods=['GET'])
+def new_food():
+    return render_template("/foods/new.html")
 
