@@ -8,12 +8,12 @@
 </p>
 
 {% for order in orders %}
-<p>Order for: {{ order.customer_id.name }}</p>
+<p>Order for: {{ order.customer.name }}</p>
 
 <section>
     <ul>
         <li>
-            <p>Restaurant: {{order.restaurant_id.name}}</p>
+            <p>Restaurant: {{order.restaurant.name}}</p>
         </li>
 
         <li>

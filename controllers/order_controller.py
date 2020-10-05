@@ -29,10 +29,13 @@ def new_order():
 @order_blueprint.route('/orders', methods=['POST'])
 def create_order():
     order_timestamp = request.form['order_timestamp']
-    customer_id = request.form['customer_id']
-    restaurant_id = request.form['restaurant_id']
+    customer_id = request.form['customer']
+    restaurant_id = request.form['restaurant']
 
-    new_order = Order(order_timestamp, customer_id, restaurant_id)
+    customer = customer_repository.select(customer_id)
+    restaurant = restaurant_repository.select(restaurant_id)
+
+    new_order = Order(order_timestamp, customer, restaurant)
 
     order_repository.save(new_order)
     return redirect('/orders')

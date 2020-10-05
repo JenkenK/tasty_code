@@ -13,7 +13,7 @@
 
         <section>
             <label for="customer">Select a Customer:</label>
-            <select name="customer_id" id="customer">
+            <select name="customer" id="customer">
               {% for customer in customers %}
               <option value="{{ customer.id }}" {% if order.customer_id == customer.id %} selected="selected"{% endif %}>{{ customer.name }}</option>
               {% endfor %}
@@ -22,7 +22,7 @@
 
         <section>
             <label for="restaurant">Select a Restaurant:</label>
-            <select name="restaurant_id" id="restaurant">
+            <select name="restaurant" id="restaurant">
               {% for restaurant in restaurants %}
               <option value="{{ restaurant.id }}">{{ restaurant.name }}</option>
               {% endfor %}
