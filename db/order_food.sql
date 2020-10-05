@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS restaurants;
 DROP TABLE IF EXISTS cuisines;
-DROP TABLE IF EXISTS food;
+DROP TABLE IF EXISTS foods;
 DROP TABLE IF EXISTS customers;
 
 
@@ -15,7 +15,7 @@ CREATE TABLE customers (
 );
 
 
-CREATE TABLE food (
+CREATE TABLE foods (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     price INT,
@@ -42,7 +42,7 @@ CREATE TABLE restaurants (
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY, -- this is my order number
     -- order_number INT,
-    order_timestamp TIMESTAMP DEFAULT NOW, --- DEFAULT CURRENT_TIMESTAMP, ---DEFAULT NOW, try include time of order from now
+    order_timestamp TIMESTAMP, ---DEFAULT NOW, --- DEFAULT CURRENT_TIMESTAMP, ---DEFAULT NOW, try include time of order from now
     customer_id SERIAL REFERENCES customers(id) ON DELETE CASCADE, 
     restaurant_id SERIAL REFERENCES restaurants(id) ON DELETE CASCADE
     --   review TEXT
