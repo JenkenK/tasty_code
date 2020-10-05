@@ -39,10 +39,10 @@ def update_dish(id):
     name = request.form["name"]
     price = request.form["price"]
     description = request.form["description"]
-    update_dish = Dish(cuisine, id)
+    update_dish = Dish(name, price, description, id)
     dish_repository.update(update_dish)
     return redirect("/dishes")
-
+ 
 
 # DELETE
 @dish_blueprint.route("/dishes/<id>/delete", methods=['POST'])

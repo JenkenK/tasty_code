@@ -3,4 +3,24 @@
 {% block content %}
 <h2>Menu</h2>
     
+<p>
+    <a href="/dishes/new"></a>
+</p>
+
+<ul>
+    {% for dish in dishes %}
+    <li>
+        <p>{{dish.name}}</p>
+        <p>£{{dish.price}}</p>
+        <p>{{dish.description}}</p>
+    </li>
+
+    <section>
+        <a href="/dishes/{{ dish.id }}/edit">Edit</a>
+        <form action="/dishes//{{ dish.id }}/delete" method="POST">
+            <input type="submit" value="Delete">
+        </form>
+    </section>
+    {% endfor %}
+</ul>
 {% endblock content %}
