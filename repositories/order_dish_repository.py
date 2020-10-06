@@ -39,3 +39,11 @@ def select_all():
         order_dish = OrderDish(order, dish, result['id'])
         order_dishes.append(order_dishs)
     return orders
+
+
+def select(order_dish_id):
+    sql = "SELECT * FROM order_dishes WHERE id = %s"
+    values = [order_dish_id]
+    result = run_sql(sql, values)[0]
+    order_dish = OrderDish(result['order_id'], results['dish_id'], result['id'])
+    return order_dish
