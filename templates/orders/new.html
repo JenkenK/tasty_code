@@ -24,7 +24,7 @@
         </select>
 
         <fieldset>
-            <label for="dishes">Select a Restaurant:</label>
+            <label for="dishes">Select Dishes:</label>
             {% for dish in dishes %}
                 <br>
                 <input type="checkbox"  id="dishes" name="dishes" value="{{ dish.id }}">{{ dish.name }}
