@@ -1,5 +1,5 @@
 class OrderDish():
-    def __init__(self, order, dishes, id=None):
+    def __init__(self, order, dish, id=None):
         self.order = order
-        self.dishes = dishes
+        self.dish = dish
         self.id = id

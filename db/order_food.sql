@@ -55,5 +55,5 @@ CREATE TABLE orders (
 CREATE TABLE order_dishes(
     id SERIAL PRIMARY KEY,
     order_id SERIAL REFERENCES orders(id),
-    dishes_id SERIAL REFERENCES dishes(id)
+    dish_id SERIAL REFERENCES dishes(id)
 )
