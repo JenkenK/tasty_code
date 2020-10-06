@@ -47,3 +47,14 @@ def select(order_dish_id):
     result = run_sql(sql, values)[0]
     order_dish = OrderDish(result['order_id'], results['dish_id'], result['id'])
     return order_dish
+
+
+def delete_all():
+    sql = "DELETE FROM order_dishes"
+    run_sql(sql)
+
+
+def delete(id):
+    sql = "DELETE FROM order_dishes WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
