@@ -12,3 +12,30 @@ def save(order_dish):
     results = run_sql(sql, values)
     order_dish.id = results[0]['id']
     return order_dish
+
+# ------------- TAKEN FROM ORDER REPO ---------------
+# def save(order):
+#     sql = "INSERT INTO orders (order_timestamp, customer_id, restaurant_id, dish_id) VALUES (%s, %s, %s, %s) RETURNING *"
+#     dish_ids = []
+#     print(order.dishes)
+#     for dish in order.dishes:
+#         dish_ids.append(dish.id)
+#     values = [order.order_timestamp, order.customer.id, order.restaurant.id, dish_ids]
+#     results = run_sql(sql, values)
+#     order.id = results[0]['id']
+#     return order
+
+
+def select_all():
+    order_dishes=[]
+
+    sql = "SELECT * FROM order_dishes"
+    results = run_sql(sql)
+
+    for result in results:
+        order = order_dish_repository.select(result['order_id'])
+        dish = order_dish_repository.select(result['dish_id'])
+
+        order_dish = OrderDish(order, dish, result['id'])
+        order_dishes.append(order_dishs)
+    return orders
