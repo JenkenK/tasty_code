@@ -38,7 +38,7 @@ kfc = Restaurant("KFC", "36 Nicolson St", "01316629524", True, fast_food)
 restaurant_repository.save(kfc)
 
 cheeseburger = Dish("Cheeseburger", 0.99, "A burger with cheese", mcdonalds)
-dish_repository.save(burger)
+dish_repository.save(cheeseburger)
 doublecheeseburger = Dish("Double Cheeseburger", 1.99, "A double burger with cheese", mcdonalds)
 dish_repository.save(doublecheeseburger)
 triplecheeseburger = Dish("Triple Cheeseburger", 2.99, "A triple burger with cheese", mcdonalds)
