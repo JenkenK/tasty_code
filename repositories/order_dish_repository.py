@@ -37,7 +37,7 @@ def select_all():
         dish = order_dish_repository.select(result['dish_id'])
 
         order_dish = OrderDish(order, dish, result['id'])
-        order_dishes.append(order_dishs)
+        order_dishes.append(order_dishes)
     return orders
 
 
