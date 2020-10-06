@@ -57,8 +57,8 @@ fanta = Dish("Fanta", 0.99, "Fanta", kfc)
 dish_repository.save(fanta)
 
 
-order1 = Order("2020-10-05 10:54:40", customer1, mcdonalds, burger)
-order_repository.save(order1)
+# order1 = Order("2020-10-05 10:54:40", customer1, mcdonalds, burger)
+# order_repository.save(order1)
 
-order2 = Order("2020-10-05 11:12:20", customer1, kfc, hotwings )
-order_repository.save(order2)
+# order2 = Order("2020-10-05 11:12:20", customer1, kfc, hotwings )
+# order_repository.save(order2)
