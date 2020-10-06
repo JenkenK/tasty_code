@@ -4,13 +4,16 @@ from models.cuisine import Cuisine
 from models.restaurant import Restaurant
 from models.order import Order
 from models.dish import Dish
+from models.order_dish import OrderDish
 
 import repositories.customer_repository as customer_repository
 import repositories.cuisine_repository as cuisine_repository
 import repositories.restaurant_repository as restaurant_repository
 import repositories.order_repository as order_repository
 import repositories.dish_repository as dish_repository
+import repositories.order_dish_repository as order_dish_repository
 
+order_dish_repository.delete_all()
 customer_repository.delete_all()
 cuisine_repository.delete_all()
 restaurant_repository.delete_all()
@@ -34,7 +37,7 @@ restaurant_repository.save(mcdonalds)
 kfc = Restaurant("KFC", "36 Nicolson St", "01316629524", True, fast_food)
 restaurant_repository.save(kfc)
 
-burger = Dish("Cheeseburger", 0.99, "A burger with cheese", mcdonalds)
+cheeseburger = Dish("Cheeseburger", 0.99, "A burger with cheese", mcdonalds)
 dish_repository.save(burger)
 doublecheeseburger = Dish("Double Cheeseburger", 1.99, "A double burger with cheese", mcdonalds)
 dish_repository.save(doublecheeseburger)
@@ -56,9 +59,13 @@ dish_repository.save(burgermeal)
 fanta = Dish("Fanta", 0.99, "Fanta", kfc)
 dish_repository.save(fanta)
 
+order1 = Order("2020-10-05 10:54:40", customer1, mcdonalds)
+order_repository.save(order1)
 
-# order1 = Order("2020-10-05 10:54:40", customer1, mcdonalds, burger)
-# order_repository.save(order1)
+order2 = Order("2020-10-05 11:12:20", customer1, kfc )
+order_repository.save(order2)
 
-# order2 = Order("2020-10-05 11:12:20", customer1, kfc, hotwings )
-# order_repository.save(order2)
+order_dishes1 = OrderDish(order1, cheeseburger)
+order_dish_repository.save(order_dishes1)
+order_dishes2 = OrderDish(order1, doublecheeseburger)
+order_dish_repository.save(order_dishes2)
