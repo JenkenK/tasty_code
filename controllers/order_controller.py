@@ -1,6 +1,7 @@
 from flask import Blueprint, Flask, redirect, render_template, request
 
 from models.order import Order
+from models.order_dish import OrderDish
 
 import repositories.order_repository as order_repository
 import repositories.customer_repository as customer_repository
@@ -33,13 +34,20 @@ def create_order():
     order_timestamp = request.form['order_timestamp']
     customer_id = request.form['customer']
     restaurant_id = request.form['restaurant']
+    dish_ids = request.form.getlist('dishes')
+    print(dish_ids)
 
     customer = customer_repository.select(customer_id)
     restaurant = restaurant_repository.select(restaurant_id)
 
     new_order = Order(order_timestamp, customer, restaurant)
-
     order_repository.save(new_order)
+
+    order_dishes = []
+    for id in dish_ids:
+        new_order_dish = OrderDish(new_order, dish_repository.select(id))
+        order_dishes.append(new_order_dish)
+
     return redirect('/orders')
 
 
