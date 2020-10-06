@@ -60,7 +60,7 @@ def update_customer(id):
 
     update_customer = Customer(name, address, payment, phone_number, service, id)
     customer_repository.update(update_customer)
-    return redirect("/dishes")
+    return redirect("/customers")
  
 
 # DELETE
