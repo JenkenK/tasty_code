@@ -55,7 +55,7 @@ def delete_all():
 
 
 def delete(id):
-    sql = "DELETE FROM order_dishes WHERE id = %s"
+    sql = "DELETE FROM order_dishes WHERE order_id = %s"
     values = [id]
     run_sql(sql, values)
 

@@ -7,6 +7,7 @@ import repositories.order_repository as order_repository
 import repositories.customer_repository as customer_repository
 import repositories.restaurant_repository as restaurant_repository
 import repositories.dish_repository as dish_repository
+import repositories.order_dish_repository as order_dish_repository
 
 order_blueprint = Blueprint("order", __name__)
 
@@ -46,6 +47,7 @@ def create_order():
     order_dishes = []
     for id in dish_ids:
         new_order_dish = OrderDish(new_order, dish_repository.select(id))
+        order_dish_repository.save(new_order_dish)
         order_dishes.append(new_order_dish)
 
     return redirect('/orders')
@@ -78,5 +80,6 @@ def update_order(order_id):
 # DELETE
 @order_blueprint.route('/orders/<order_id>/delete', methods=['POST'])
 def delete_order(order_id):
+    order_dish_repository.delete(order_id)
     order_repository.delete(order_id)
     return redirect('/orders')
