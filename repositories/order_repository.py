@@ -5,16 +5,11 @@ from models.order import Order
 import repositories.order_repository as order_repository
 import repositories.restaurant_repository as restaurant_repository
 import repositories.customer_repository as customer_repository
-import repositories.dish_repository as dish_repository
 
 
 def save(order):
-    sql = "INSERT INTO orders (order_timestamp, customer_id, restaurant_id, dish_id) VALUES (%s, %s, %s, %s) RETURNING *"
-    dish_ids = []
-    print(order.dishes)
-    for dish in order.dishes:
-        dish_ids.append(dish.id)
-    values = [order.order_timestamp, order.customer.id, order.restaurant.id, dish_ids]
+    sql = "INSERT INTO orders (order_timestamp, customer_id, restaurant_id) VALUES (%s, %s, %s) RETURNING *"
+    values = [order.order_timestamp, order.customer.id, order.restaurant.id]
     results = run_sql(sql, values)
     order.id = results[0]['id']
     return order
@@ -29,9 +24,8 @@ def select_all():
     for result in results:
         restaurant = restaurant_repository.select(result['restaurant_id'])
         customer = customer_repository.select(result['customer_id'])
-        dish = dish_repository.select(result['dish_id'])
         timestamp = result['order_timestamp']
-        order = Order(timestamp, customer, restaurant, dish, result['id'])
+        order = Order(timestamp, customer, restaurant, result['id'])
         orders.append(order)
     return orders
 
@@ -40,7 +34,7 @@ def select(order_id):
     sql = "SELECT * FROM orders WHERE id = %s"
     values = [order_id]
     result = run_sql(sql, values)[0]
-    order = Order(result['order_timestamp'], result['customer_id'], result['restaurant_id'], result['dish_id'], result['id'])
+    order = Order(result['order_timestamp'], result['customer_id'], result['restaurant_id'], result['id'])
     return order
 
 
@@ -56,7 +50,7 @@ def delete(id):
 
 
 def update(order):
-    sql = "UPDATE orders SET (order_timestamp, customer_id, restaurant_id, dish_id) = (%s, %s, %s, %s) WHERE id = (%s)"
-    values = [order.order_timestamp, order.customer.id, order.restaurant.id, order.dish.id, order.id]
+    sql = "UPDATE orders SET (order_timestamp, customer_id, restaurant_id) = (%s, %s, %s) WHERE id = (%s)"
+    values = [order.order_timestamp, order.customer.id, order.restaurant.id, order.id]
     run_sql(sql, values)
 
