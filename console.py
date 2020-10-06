@@ -31,12 +31,34 @@ cuisine_repository.save(fast_food)
 
 mcdonalds = Restaurant("McDonalds", "137 Princes St", "01312263872", True, fast_food)
 restaurant_repository.save(mcdonalds)
-
-order1 = Order("2020-10-05 10:54:40", customer1, mcdonalds)
-order_repository.save(order1)
-
-order2 = Order("2020-10-05 11:12:20", customer1, mcdonalds )
-order_repository.save(order2)
+kfc = Restaurant("KFC", "36 Nicolson St", "01316629524", True, fast_food)
+restaurant_repository.save(kfc)
 
 burger = Dish("Cheeseburger", 0.99, "A burger with cheese", mcdonalds)
 dish_repository.save(burger)
+doublecheeseburger = Dish("Double Cheeseburger", 1.99, "A double burger with cheese", mcdonalds)
+dish_repository.save(doublecheeseburger)
+triplecheeseburger = Dish("Triple Cheeseburger", 2.99, "A triple burger with cheese", mcdonalds)
+dish_repository.save(triplecheeseburger)
+quarterpounder = Dish("Quarter Punder", 1.99, "A burger that is a quarter of a pound", mcdonalds)
+dish_repository.save(quarterpounder)
+chickenlegend = Dish("Chicken Legend", 1.99, "A chicken burger", mcdonalds)
+dish_repository.save(chickenlegend)
+
+hotwings = Dish("Hot Wing", 0.50, "Hot and spicy chicken wings", kfc)
+dish_repository.save(hotwings)
+bucket = Dish("10 Piece Bucket", 9.99, "Bucket 10 of original piece", kfc)
+dish_repository.save(bucket)
+chips = Dish("Chips", 0.99, "Regular chips", kfc)
+dish_repository.save(chips)
+burgermeal = Dish("Fillet Burger Meal", 3.99, "Fillet burger meal with chips and drink", kfc)
+dish_repository.save(burgermeal)
+fanta = Dish("Fanta", 0.99, "Fanta", kfc)
+dish_repository.save(fanta)
+
+
+order1 = Order("2020-10-05 10:54:40", customer1, mcdonalds, burger)
+order_repository.save(order1)
+
+order2 = Order("2020-10-05 11:12:20", customer1, kfc, hotwings )
+order_repository.save(order2)
