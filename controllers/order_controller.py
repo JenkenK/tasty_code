@@ -5,6 +5,7 @@ from models.order import Order
 import repositories.order_repository as order_repository
 import repositories.customer_repository as customer_repository
 import repositories.restaurant_repository as restaurant_repository
+import repositories.dish_repository as dish_repository
 
 order_blueprint = Blueprint("order", __name__)
 
@@ -22,7 +23,8 @@ def new_order():
     orders = order_repository.select_all()
     customers = customer_repository.select_all()
     restaurants = restaurant_repository.select_all()
-    return render_template("/orders/new.html", orders = orders, customers = customers, restaurants = restaurants)
+    dishes = dish_repository.select_all()
+    return render_template("/orders/new.html", orders = orders, customers = customers, restaurants = restaurants, dishes = dishes)
 
 
 # CREATE
