@@ -43,7 +43,8 @@ def create_dish():
 @dish_blueprint.route("/dishes/<id>/edit")
 def edit_dish(id):
     dish = dish_repository.select(id)
-    return render_template('dishes/edit.html', dish = dish)
+    restaurants = restaurant_repository.select_all()
+    return render_template('dishes/edit.html', dish = dish, restaurants=restaurants)
 
 
 # UPDATE

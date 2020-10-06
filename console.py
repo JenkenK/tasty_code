@@ -19,6 +19,8 @@ dish_repository.delete_all()
 
 customer1 = Customer("Jenken", "1 Street Name", "Card", "07123456789", "Delivery")
 customer_repository.save(customer1)
+customer1 = Customer("Jenken2", "2 Street Name", "Card", "07123456789", "Delivery")
+customer_repository.save(customer1)
 
 chinese = Cuisine("Chinese")
 cuisine_repository.save(chinese)
