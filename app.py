@@ -5,6 +5,7 @@ from controllers.cuisine_controller import cuisine_blueprint
 from controllers.restaurant_controller import restaurant_blueprint
 from controllers.order_controller import order_blueprint
 from controllers.dish_controller import dish_blueprint
+from controllers.order_dish_controller import order_dish_blueprint
 
 app = Flask(__name__)
 
@@ -13,6 +14,7 @@ app.register_blueprint(cuisine_blueprint)
 app.register_blueprint(restaurant_blueprint)
 app.register_blueprint(order_blueprint)
 app.register_blueprint(dish_blueprint)
+app.register_blueprint(order_dish_blueprint)
 
 
 @app.route('/')
