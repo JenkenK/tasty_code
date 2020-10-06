@@ -27,3 +27,44 @@ def new_customer():
     return render_template("customers/new.html", customers = customers)
 
 
+# CREATE
+@customers_blueprint.route("/customers", methods=["POST"])
+def create_customer():
+    name = request.form['name']
+    address = request.form['address']
+    payment = request.form['payment']
+    phone_number = request.form['phone_number']
+    service = request.form['service']
+
+    new_customer = Customer(name, address, payment, phone_number, service)
+
+    customer_repository.save(new_customer)
+    return redirect('/customers')
+
+
+# EDIT
+@customers_blueprint.route("/customers/<id>/edit")
+def edit_customer(id):
+    customer = customer_repository.select(id)
+    return render_template('customers/edit.html', customer = customer)
+
+
+# UPDATE
+@customers_blueprint.route("/customers/<id>", methods=['POST'])
+def update_customer(id):
+    name = request.form['name']
+    address = request.form['address']
+    payment = request.form['payment']
+    phone_number = request.form['phone_number']
+    service = request.form['service']
+
+    update_customer = Customer(name, address, payment, phone_number, service, id)
+    customer_repository.update(update_customer)
+    return redirect("/dishes")
+ 
+
+# DELETE
+@customers_blueprint.route("/customers/<id>/delete", methods=['POST'])
+def delete_customer(id):
+    customer_repository.delete(id)
+    return redirect("/customers")

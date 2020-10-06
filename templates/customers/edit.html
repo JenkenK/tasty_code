@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Update Customer Details</h2>
+
+<form action="/customers/{{ customer.id }}" method="POST">
+    <div>
+        <section>
+            <label for="name">Name:</label>
+            <input type="text" id="text" name="name" value="{{ customer.name }}">
+        </section>
+
+        <section>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" value="{{customer.Address}}">
+        </section>
+
+        <section>
+            <label for="payment">Payment:</label>
+            <input type="text" id="payment" name="payment" value="{{ customer.payment }}">
+        </section>
+
+        <section>
+            <label for="phone_number">Phone Number:</label>
+            <select name="phone_number" id="phone_number">
+                <input type="number" id="phone_number" name="phone_number" value="{{customer.phone_number}}">
+            </select>
+        </section>
+
+        <section>
+            <label for="service">Service Type:</label>
+            <input type="text" id='service' name='service' value="{{customer.service}}">
+        </section>
+
+        <input type="submit">
+    </div>
+</form>
+    
+{% endblock content %}

@@ -8,4 +8,11 @@
 <p> Phone number: 0{{customer.phone_number}}</p>
 <p> Service Type: {{customer.service}}</p>
 
+<section>
+    <a href="/customers/{{ customer.id }}/edit">Edit</a>
+    <form action="/customers/{{ customer.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+</section>
+
 {% endblock %}
