@@ -39,23 +39,26 @@ header > nav > ul > li > a {
 
 header > nav > ul > li > a:visited {
     color:black;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 header > nav > ul > li > a:hover {
     color:grey;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 header > nav > ul > li > a:active {
-    color:#ff5714;
-    transition: 0.5s;
+    color:#fd7e14;
+    transition: 0.2s;
 }
+
 
 header > h1 > a {
     padding: 10px;
     text-decoration: none;
     border: 2px solid black;
+    display: flex;
+    margin: 0;
 }
 
 header > h1 > a:visited {
@@ -67,14 +70,26 @@ header > h1 > a {
 }
 
 
+#code-title{
+    margin: 0;
+    padding: 0;
+    color: #fd7e14;
+}
+
+#tasty-title{
+    margin: 0;
+    padding: 0;
+    padding-right: 10px;
+}
 
 
 
 
 
+/* 
 .restaurant-card{
     background-color: #e8e8e8;
     padding: 2em;
     max-width: 600px;
     margin: 0 auto;
-    margin-bottom: 2em;
+    margin-bottom: 2em; */
