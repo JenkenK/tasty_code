@@ -24,7 +24,7 @@
             <section>
                 <label for="dishes">Order dishes:</label>
 
-                {% for dish in dishes %}
+                {% for dish in order_dishes %}
                 {% if dish.order.id == order.id %}
                 <p>{{ dish.dish.name }}</p>
                 {% endif %}
