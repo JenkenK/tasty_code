@@ -1,0 +1,24 @@
+.message{
+    color:white;
+    margin: 0;
+    padding: 5px;
+
+}
+
+#index-header{
+    margin: 0;
+    text-align: center;
+    padding:20px;
+}
+
+
+#message{
+    text-align: center;
+}
+
+#welcome-index{
+    height:100vh;
+    background-image: url(/static/images/brooke-lark-4J059aGa5s4-unsplash.jpg);
+    background-size: cover;
+    
+}
