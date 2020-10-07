@@ -8,34 +8,36 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
 </head>
 
-<body>
-    <header id="header">
-        <h1 id="app-name">
-            <a href="/">CoDe Foodie!</a>
-        </h1>
-        <nav id='nav-bar'>
-            <ul id='nav-bar-links'>
-                <li><a href="/">Home</a></li>
-                <li><a href="/customers">Customers</a></li>
-                <li><a href="/restaurants">Restaurants</a></li>
-                <li><a href="/cuisines">Cuisines</a></li>
-                <li><a href="/orders">Orders</a></li>
-            </ul>
-        </nav>
-    </header>
+<header id="header">
+    <h1 id="app-name">
+        <a href="/">CoDe Foodie!</a>
+    </h1>
+    <nav id='nav-bar'>
+        <ul id='nav-bar-links'>
+            <li><a href="/">Home</a></li>
+            <li><a href="/customers">Customers</a></li>
+            <li><a href="/restaurants">Restaurants</a></li>
+            <li><a href="/cuisines">Cuisines</a></li>
+            <li><a href="/orders">Orders</a></li>
+        </ul>
+    </nav>
+</header>
 
+<body>
     <section>
         {% block content %}
         
         {% endblock content %}
     </section>
-
-    <footer>
-        <p>Footer</p>
-    </footer>
-        
+    
 </body>
+
+<footer>
+    <p>Footer</p>
+</footer>
+
 </html>
 
