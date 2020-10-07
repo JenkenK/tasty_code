@@ -1,33 +1,76 @@
-#nav-bar{
-    width: 100%;
-    height: 70px;
-    display: flex;
-    flex-direction: row;
-    background-color:green;
-    justify-content: space-between;
-    color:white;
-    align-items: center;
+header {
+    height: 220px;
+    background-color: #a1e44d
 }
 
-#nav-bar > h1{
-    margin-left: 12px;
+#app-name{
+    font-size: 60px;
+    margin: 0;
+    padding: 20px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#nav-bar{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #nav-bar-links{
     display: flex;
-
+    padding: 0;
 }
 
 #nav-bar-links > li {
     list-style: none;
-    color:white;
     margin-left: 10px;
     margin-right: 12px;
 }
 
-#nav-bar-links > a {
-    color: white;
+body > header > nav > ul > li > a {
+    text-decoration: none;
 }
+
+body > header > nav > ul > li > a:visited {
+    color:black;
+    transition: 0.5s;
+}
+
+body > header > nav > ul > li > a:hover {
+    color:grey;
+    transition: 0.5s;
+}
+
+body > header > nav > ul > li > a:active {
+    color:#ff5714;
+    transition: 0.5s;
+}
+
+body > header > h1 > a {
+    padding: 10px;
+    text-decoration: none;
+    border: 2px solid black;
+}
+
+body > header > h1 > a:visited {
+    color:black;
+}
+
+body > header > h1 > a {
+    color:black;
+}
+
+
+
+
+
+
 
 .restaurant-card{
     background-color: #e8e8e8;
@@ -35,5 +78,3 @@
     max-width: 600px;
     margin: 0 auto;
     margin-bottom: 2em;
-}
-
