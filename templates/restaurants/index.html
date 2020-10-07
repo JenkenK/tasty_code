@@ -7,24 +7,24 @@
   <a href="/restaurants/new">New Restaurant</a>
 </p>
 
-<ul>
+<div>
   {% for restaurant in restaurants %}
-  <li>
-      <p>{{ restaurant.name }} - {{ restaurant.cuisine.cuisine }}</p>
+  <div class="restaurant-card">
+      <h3>{{ restaurant.name }} - {{ restaurant.cuisine.cuisine }}</h3>
       <p>{{ restaurant.address }}</p>
       <p>{{ restaurant.phone_number }}</p>
       <p>{{ restaurant.availability }}</p>
       <a href="/dishes">Menu</a>
       
       <section>
-          <a href="/restaurants/{{ restaurant.id }}/edit">Edit</a>
+          <a class="edit-link" href="/restaurants/{{ restaurant.id }}/edit">Edit</a>
           <form action="/restaurants/{{ restaurant.id }}/delete" method="POST">
             <input type="submit" value="Delete"/>
         </form>
     </section>
-</li>
+</div>
 {% endfor %}
-</ul>
+</div>
 
 
 {% endblock %}

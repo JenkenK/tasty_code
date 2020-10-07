@@ -30,6 +30,21 @@
             </select>
         </section>
 
+        <section>
+            <label for="current_dishes">Current Dishes:</label>
+            
+        </section>
+
+        <section>
+            <fieldset>
+                <label for="dishes">Add Dishes:</label>
+                {% for dish in dishes %}
+                    <br>
+                    <input type="checkbox"  id="dishes" name="dishes" value="{{ dish.id }}">{{ dish.name }}
+                {% endfor %}
+            </fieldset>
+        </section>
+
         <input type="submit">
     </div>
 </form>

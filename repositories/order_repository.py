@@ -22,9 +22,9 @@ def select_all():
     results = run_sql(sql)
 
     for result in results:
-        restaurant = restaurant_repository.select(result['restaurant_id'])
-        customer = customer_repository.select(result['customer_id'])
         timestamp = result['order_timestamp']
+        customer = customer_repository.select(result['customer_id'])
+        restaurant = restaurant_repository.select(result['restaurant_id'])
         order = Order(timestamp, customer, restaurant, result['id'])
         orders.append(order)
     return orders

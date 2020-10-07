@@ -20,6 +20,19 @@
             <p>Order time: {{order.order_timestamp}}</p>
         </li>
 
+        <li>
+            <section>
+                <label for="dishes">Order dishes:</label>
+
+                {% for dish in dishes %}
+                {% if dish.order.id == order.id %}
+                <p>{{ dish.dish.name }}</p>
+                {% endif %}
+                {% endfor %}
+
+            </section>
+        </li>
+
         <section>
             <a href="/orders/{{ order.id }}/edit">Edit</a>
             <form action="/orders/{{ order.id }}/delete" method="POST">
@@ -32,3 +45,5 @@
 
 
 {% endblock %}
+
+

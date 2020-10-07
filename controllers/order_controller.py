@@ -16,7 +16,8 @@ order_blueprint = Blueprint("order", __name__)
 @order_blueprint.route('/orders')
 def orders():
     orders = order_repository.select_all()
-    return render_template("/orders/index.html", orders = orders)
+    dishes = order_dish_repository.select_all()
+    return render_template("/orders/index.html", orders = orders, dishes = dishes)
 
 
 # NEW
@@ -36,7 +37,6 @@ def create_order():
     customer_id = request.form['customer']
     restaurant_id = request.form['restaurant']
     dish_ids = request.form.getlist('dishes')
-    print(dish_ids)
 
     customer = customer_repository.select(customer_id)
     restaurant = restaurant_repository.select(restaurant_id)
@@ -59,7 +59,8 @@ def edit_order(order_id):
     order = order_repository.select(order_id)
     restaurants = restaurant_repository.select_all()
     customers = customer_repository.select_all()
-    return render_template('orders/edit.html', order=order, restaurants=restaurants, customers=customers)
+    dishes = dish_repository.select_all()
+    return render_template('orders/edit.html', order=order, restaurants=restaurants, customers=customers, dishes = dishes)
     
 
 # UPDATE
@@ -68,12 +69,20 @@ def update_order(order_id):
     timestamp = request.form["order_timestamp"]
     customer_id = request.form["customer"]
     restaurant_id = request.form["restaurant"]
+    dish_ids = request.form.getlist('dishes')
 
     customer = customer_repository.select(customer_id)    
     restaurant = restaurant_repository.select(restaurant_id)
 
     update_order = Order(timestamp, customer, restaurant, order_id)
     order_repository.update(update_order)
+
+    updated_order_dishes = []
+    for id in dish_ids:
+        updated_order_dish = OrderDish(update_order, dish_repository.select(id))
+        order_dish_repository.save(updated_order_dish)
+        updated_order_dishes.append(updated_order_dishes)
+
     return redirect("/orders")
 
 

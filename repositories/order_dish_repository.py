@@ -4,6 +4,7 @@ from models.order_dish import OrderDish
 
 import repositories.order_dish_repository as order_dish_repository
 import repositories.dish_repository as dish_repository
+import repositories.order_repository as order_repository
 
 
 def save(order_dish):
@@ -33,12 +34,11 @@ def select_all():
     results = run_sql(sql)
 
     for result in results:
-        order = order_dish_repository.select(result['order_id'])
-        dish = order_dish_repository.select(result['dish_id'])
-
+        order = order_repository.select(result['order_id'])
+        dish = dish_repository.select(result['dish_id'])
         order_dish = OrderDish(order, dish, result['id'])
-        order_dishes.append(order_dishes)
-    return orders_dish
+        order_dishes.append(order_dish)
+    return order_dishes
 
 
 def select(order_dish_id):
