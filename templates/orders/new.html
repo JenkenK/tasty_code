@@ -1,41 +1,47 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Add a New Order</h1>
+<section>
+    <div class='card new-customer-card'>
+        <h1>Add a New Order</h1>
+        
+        <form action="/orders" method="post">
+            <div>
+                <h2>Order Details:</h2>
+                <label for="order_timestamp">Order time:</label>
+                <input type="datetime-local" id="order_timestamp" name="order_timestamp">
+        
+                <label for="customer">Select a Customer:</label>
+                <select name="customer" id="customer">
+                  {% for customer in customers %}
+                  <option value="{{ customer.id }}">{{ customer.name }}</option>
+                  {% endfor %}
+                </select>
+        
+                <label for="restaurant">Select a Restaurant:</label>
+                <select name="restaurant" id="restaurant">
+                  {% for restaurant in restaurants %}
+                  <option value="{{ restaurant.id }}">{{ restaurant.name }}</option>
+                  {% endfor %}
+                </select>
+        
+                <fieldset>
+                    <label for="dishes">Select Dishes:</label>
+                    {% for dish in dishes %}
+                        <br>
+                        <input type="checkbox"  id="dishes" name="dishes" value="{{ dish.id }}">{{ dish.name }}
+                    {% endfor %}
+                </fieldset>
+            </div>
+        
+            <div>
+                <input class='btn' type='submit'>
+            </div>
+        </form>
 
-<form action="/orders" method="post">
-    <div>
-        <p>Order Details:</p>
-        <label for="order_timestamp">Order time:</label>
-        <input type="datetime-local" id="order_timestamp" name="order_timestamp">
-
-        <label for="customer">Select a Customer:</label>
-        <select name="customer" id="customer">
-          {% for customer in customers %}
-          <option value="{{ customer.id }}">{{ customer.name }}</option>
-          {% endfor %}
-        </select>
-
-        <label for="restaurant">Select a Restaurant:</label>
-        <select name="restaurant" id="restaurant">
-          {% for restaurant in restaurants %}
-          <option value="{{ restaurant.id }}">{{ restaurant.name }}</option>
-          {% endfor %}
-        </select>
-
-        <fieldset>
-            <label for="dishes">Select Dishes:</label>
-            {% for dish in dishes %}
-                <br>
-                <input type="checkbox"  id="dishes" name="dishes" value="{{ dish.id }}">{{ dish.name }}
-            {% endfor %}
-        </fieldset>
     </div>
 
-    <div>
-        <input type='submit'>
-    </div>
-</form>
+</section>
 
 {% endblock %}
 

@@ -1,17 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-
-<h2>Cuisines</h2>
-
-{% for cuisine in cuisines %}
-
 <section>
-    <p>{{ cuisine.cuisine }}</p>
-    <a href="/cuisines/{{ cuisine.id }}/edit">Edit</a>
-    <form action="/cuisines/{{ cuisine.id }}/delete" method="POST">
-        <input type="submit" value="Delete">
-    </form>
-</section>
+    <h2 id='index-cust-header'>Cuisines</h2>
+    
+    {% for cuisine in cuisines %}
+    
+    <div class='card'>
+        <h2>{{ cuisine.cuisine }}</h2>
+        <div class="button-container">
+            <a class='btn' href="/cuisines/{{ cuisine.id }}/edit">Edit</a>
+            <form action="/cuisines/{{ cuisine.id }}/delete" method="POST">
+                <input class='btn danger' type="submit" value="Delete">
+            </form>
 
-{% endfor %}
+        </div>
+    </div>
+    
+    {% endfor %}
+</section>
 {% endblock %}
+
+

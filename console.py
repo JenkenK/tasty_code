@@ -43,7 +43,7 @@ doublecheeseburger = Dish("Double Cheeseburger", 1.99, "A double burger with che
 dish_repository.save(doublecheeseburger)
 triplecheeseburger = Dish("Triple Cheeseburger", 2.99, "A triple burger with cheese", mcdonalds)
 dish_repository.save(triplecheeseburger)
-quarterpounder = Dish("Quarter Punder", 1.99, "A burger that is a quarter of a pound", mcdonalds)
+quarterpounder = Dish("Quarter Pounder", 1.99, "A burger that is a quarter of a pound", mcdonalds)
 dish_repository.save(quarterpounder)
 chickenlegend = Dish("Chicken Legend", 1.99, "A chicken burger", mcdonalds)
 dish_repository.save(chickenlegend)

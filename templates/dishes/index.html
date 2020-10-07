@@ -1,27 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Menu</h2>
+<section>
+    <h2 id='index-cust-header'>Menu</h2>
+        
+    <p id="new-cust">
+        <a class='btn' href="/dishes/new">New Dish</a>
+    </p>
+    <ul>
+        {% for dish in dishes %}
+            <div class='card'>
+            <li>
+                <p>{{dish.name}}</p>
+                <p>£{{dish.price}}</p>
+                <p>{{dish.description}}</p>
+                <p>- {{dish.restaurant.name}}</p>
+            </li>
+        
+            <div class='button-container'>
+                <a class='btn' href="/dishes/{{ dish.id }}/edit">Edit</a>
+                <form action="/dishes/{{ dish.id }}/delete" method="POST">
+                    <input class='btn danger' type="submit" value="Delete">
+                </form>
+            </div>
+        </div>
+            {% endfor %}
+        </ul>
+
     
-<p>
-    <a href="/dishes/new">New Dish</a>
-</p>
-
-<ul>
-    {% for dish in dishes %}
-    <li>
-        <p>{{dish.name}}</p>
-        <p>£{{dish.price}}</p>
-        <p>{{dish.description}}</p>
-        <p>- {{dish.restaurant.name}}</p>
-    </li>
-
-    <section>
-        <a href="/dishes/{{ dish.id }}/edit">Edit</a>
-        <form action="/dishes/{{ dish.id }}/delete" method="POST">
-            <input type="submit" value="Delete">
-        </form>
-    </section>
-    {% endfor %}
-</ul>
+</section>
 {% endblock content %}

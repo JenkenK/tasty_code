@@ -1,14 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Update a Cuisine</h2>
-
-<form action="/cuisines/{{ cuisine.id }}" method="POST">
-    <div>
-        <label for="cuisine">Cuisine:</label>
-        <input type="text" id="cuisine" name="cuisine" value="{{ cuisine.cuisine }}">
-        <input type="submit">
+<section>
+    <div class='card'>
+        <h2>Update a Cuisine</h2>
+        
+        <form action="/cuisines/{{ cuisine.id }}" method="POST">
+            <div>
+                <h2 for="cuisine">Cuisine:</h2>
+                <input type="text" id="cuisine" name="cuisine" value="{{ cuisine.cuisine }}">
+                <input class='btn' type="submit">
+            </div>
+        </form>
+        
+        
     </div>
-</form>
-
+</section>
 {% endblock %}

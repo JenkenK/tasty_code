@@ -1,21 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Customers</h1>
+<section>
+    <h2 id="index-cust-header">Customers</h2>
+    
+    <p id="new-cust">
+        <a class="btn" id="new-cust-link" href="/customers/new">Add New Customer</a>
+    </p>
+    
+    <div class="card">
+        <h3> Customer Details:</h3>
+        <div id="customer-table">
+        <h4>Customer Name</h4>
+        <h4>Service</h4>
+            {% for customer in customers %}
+                <a id="single-cust-link" href="/customers/{{customer.id}}">
+                    {{customer.name}} 
+                </a>
+                <p>
+                {{customer.service}}
+            </p>
+            {% endfor %}
+            </div>
+    </div>
 
-<p>
-    <a href="/customers/new">New Customer</a>
-</p>
-
-<table>
-    <tr>
-    <th>Customer Details:</th>
-  
-    </tr>
-    {% for customer in customers %}
-    <tr>
-        <td><a href="/customers/{{customer.id}}"> {{customer.name}} </a>{{customer.service}}</td>
-    </tr>
-    {% endfor %}
-</table>
+</section>
 {% endblock %}

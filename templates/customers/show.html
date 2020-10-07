@@ -1,18 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h1> {{customer.name}} </h1>
+<section>
+<div class="card">
+<h2> {{customer.name}} </h2>
 <p> Address: {{customer.address}}</p>
 <p> Payment Details: {{customer.payment}}</p>
 <p> Phone number: 0{{customer.phone_number}}</p>
 <p> Service Type: {{customer.service}}</p>
 
-<section>
-    <a href="/customers/{{ customer.id }}/edit">Edit</a>
+
+<div class="button-container">
+<a class="btn" href="/customers/{{ customer.id }}/edit">Edit</a>
     <form action="/customers/{{ customer.id }}/delete" method="POST">
-        <input type="submit" value="Delete">
+        <input class="btn danger" type="submit" value="Delete">
     </form>
+</div>
+</div>
 </section>
 
 {% endblock %}

@@ -1,58 +1,63 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<h2>Update Order</h2>
-
-
-<form action="/orders/{{ order.id }}" method="POST">
-    <div>
-        <section>
-            <label for="order_timestamp">Order Time:</label>
-            <input type="datetime-local" id="order_timestamp" name="order_timestamp" value="{{ order.order_timestamp }}">
-        </section>
-
-        <section>
-            <label for="customer">Select a Customer:</label>
-            <select name="customer" id="customer">
-              {% for customer in customers %}
-              <option value="{{ customer.id }}" {% if order.customer == customer.id %} selected="selected"{% endif %}>{{ customer.name }}</option>
-              {% endfor %}
-            </select>
-        </section>
-
-        <section>
-            <label for="restaurant">Select a Restaurant:</label>
-            <select name="restaurant" id="restaurant">
-              {% for restaurant in restaurants %}
-              <option value="{{ restaurant.id }}" {% if order.restaurant == restaurant.id %} selected="selected"{% endif %}>{{ restaurant.name }}</option>
-              {% endfor %}
-            </select>
-        </section>
-
-        <section>
-            <label for="current_dishes">Current Dishes:</label>
-            {% for dish in order_dishes %}
-            {% if dish.order.id == order.id %}
-            <p>{{ dish.dish.name }}</p>
-            {% endif %}
-            {% endfor %}
-
-        </section>
-
-        <section>
-            <fieldset>
-                <label for="dishes">Add Dishes:</label>
-                {% for dish in dishes %}
-                    <br>
-                    <input type="checkbox" id="dishes" name="dishes" value="{{ dish.id }}">{{ dish.name }}
+<section>
+    <div class='card new-customer-card'>
+        <h2>Update Order</h2>
+        
+        
+        <form action="/orders/{{ order.id }}" method="POST">
+            <div>
+        
+                <label for="order_timestamp">Order Time:</label>
+                <input type="datetime-local" id="order_timestamp" name="order_timestamp" value="{{ order.order_timestamp }}">
+        
+    
+    
+                <label for="customer">Select a Customer:</label>
+                <select name="customer" id="customer">
+                    {% for customer in customers %}
+                    <option value="{{ customer.id }}" {% if order.customer == customer.id %} selected="selected"{% endif %}>{{ customer.name }}</option>
+                    {% endfor %}
+                </select>
+        
+    
+    
+                <label for="restaurant">Select a Restaurant:</label>
+                <select name="restaurant" id="restaurant">
+                    {% for restaurant in restaurants %}
+                    <option value="{{ restaurant.id }}" {% if order.restaurant == restaurant.id %} selected="selected"{% endif %}>{{ restaurant.name }}</option>
+                    {% endfor %}
+                </select>
+        
+    
+    
+                <label for="current_dishes">Current Dishes:</label>
+                {% for dish in order_dishes %}
+                {% if dish.order.id == order.id %}
+                <p>{{ dish.dish.name }}</p>
+                {% endif %}
                 {% endfor %}
-            </fieldset>
-        </section>
+    
+        
+    
+    
+                <fieldset>
+                    <label for="dishes">Add Dishes:</label>
+                    {% for dish in dishes %}
+                        <br>
+                        <input type="checkbox" id="dishes" name="dishes" value="{{ dish.id }}">{{ dish.name }}
+                    {% endfor %}
+                </fieldset>
+            
+        
+                <input class='btn' type="submit">
+            </div>
+        </form>
 
-        <input type="submit">
     </div>
-</form>
+
+</section>
 
 {% endblock %}
 

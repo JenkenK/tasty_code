@@ -1,36 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Update Dish</h2>
+<section>
+    <div class='card new-customer-card'>
+        <h2>Update Dish</h2>
+        
+        <form action="/dishes/{{ dish.id }}" method="POST">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="text" name="name" value="{{ dish.name }}">
+            </div>
+    
+            <div>
+                <label for="price">Price:</label>
+                <input type="number" step="0.01" id="price" name="price" value="{{dish.price}}">
+            </div>
+    
+            <div>
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" value="{{ dish.description }}">
+            </div>
+    
+            <div>
+                <label for="restaurant">Restaurant:</label>
+                <select name="restaurant" id="restaurant">
+                    {% for restaurant in restaurants %}
+                    <option value="{{ restaurant.id }}" {% if dish.restaurant == dish.id %} selected="selected"{% endif %}>{{ restaurant.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+    
+            <input class='btn' type="submit">
+        </form>
 
-<form action="/dishes/{{ dish.id }}" method="POST">
-    <div>
-        <section>
-            <label for="name">Name:</label>
-            <input type="text" id="text" name="name" value="{{ dish.name }}">
-        </section>
-
-        <section>
-            <label for="price">Price:</label>
-            <input type="number" step="0.01" id="price" name="price" value="{{dish.price}}">
-        </section>
-
-        <section>
-            <label for="description">Description:</label>
-            <input type="text" id="description" name="description" value="{{ dish.description }}">
-        </section>
-
-        <section>
-            <label for="restaurant">Restaurant:</label>
-            <select name="restaurant" id="restaurant">
-                {% for restaurant in restaurants %}
-                <option value="{{ restaurant.id }}" {% if dish.restaurant == dish.id %} selected="selected"{% endif %}>{{ restaurant.name }}</option>
-                {% endfor %}
-            </select>
-        </section>
-
-        <input type="submit">
     </div>
-</form>
+
+</section>
     
 {% endblock content %}

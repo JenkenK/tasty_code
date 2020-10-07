@@ -1,6 +1,7 @@
 header {
     height: 220px;
-    background-color: #a1e44d;
+    /* background-color: #a1e44d; */
+    background-color: white;
 }
 
 #app-name{

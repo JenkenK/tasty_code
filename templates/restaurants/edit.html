@@ -1,43 +1,44 @@
 {% extends "base.html" %}
 {% block content %}
-
-
-
-<h2>Update {{restaurant.name}} Details</h2>
-
-<form action="/restaurants/{{ restaurant.id }}" method="POST">
-    <div>
-        <section>
-            <label for="restaurant">Name:</label>
-            <input type="text" id="restaurant" name="restaurant" value="{{ restaurant.name }}">
-        </section>
+<section>
+    <div class="card new-customer-card">
+        <h2>Update {{restaurant.name}} Details</h2>
         
-        <section>
-            <label for="cuisine">Cuisine:</label>
-            <select name="cuisine_id" id="cuisine">
-                {% for cuisine in cuisines %}
-                <option value="{{ cuisine.id }}" {% if restaurant.cuisine == cuisine.id %} selected="selected"{% endif %} >{{ cuisine.cuisine }}</option>
-                {% endfor %}
-            </select>
-        </section>
-
-        <section>
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" value="{{ restaurant.address }}">
-        </section>
-
-        <section>
-            <label for="phone_number">Phone Number:</label>
-            <input type="text" id="phone_number" name="phone_number" value="{{ restaurant.phone_number }}">
-        </section>
-
-        <section>
-            <label for="availability">Availability:</label>
-            <input type="checkbox" id="availability" name="availability" checked="{{ restaurant.availability }}" value="{{ restaurant.availability }}">
-        </section>
-
-        <input type="submit">
+        <form action="/restaurants/{{ restaurant.id }}" method="POST">
+                <div>
+                    <label for="restaurant">Name:</label>
+                    <input type="text" id="restaurant" name="restaurant" value="{{ restaurant.name }}">
+                </div>
+                
+                <div>
+                    <label for="cuisine">Cuisine:</label>
+                    <select name="cuisine_id" id="cuisine">
+                        {% for cuisine in cuisines %}
+                        <option value="{{ cuisine.id }}" {% if restaurant.cuisine == cuisine.id %} selected="selected"{% endif %} >{{ cuisine.cuisine }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+        
+                <div>
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" value="{{ restaurant.address }}">
+                </div>
+        
+                <div>
+                    <label for="phone_number">Phone Number:</label>
+                    <input type="text" id="phone_number" name="phone_number" value="0{{ restaurant.phone_number }}">
+                </div>
+        
+                <div>
+                    <label for="availability">Availability:</label>
+                    <input type="checkbox" id="availability" name="availability" checked="{{ restaurant.availability }}" value="{{ restaurant.availability }}">
+                </div>
+        
+                <input class='btn' type="submit">
+        </form>
     </div>
-</form>
+</section>
+
+
 
 {% endblock %}

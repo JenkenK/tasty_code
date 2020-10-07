@@ -1,30 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Restaurants</h1>
+<section>
+    <h2 id="index-cust-header">Restaurants</h2>
+    <p id="new-cust">
+        <a class='btn' href="/restaurants/new">New Restaurant</a>
+    </p>
+    {% for restaurant in restaurants %}
+    <div class="card">
+        <h3>{{ restaurant.name }} - {{ restaurant.cuisine.cuisine }}</h3>
+        <p>{{ restaurant.address }}</p>
+        <p>{{ restaurant.phone_number }}</p>
+        <p>
+            {% if restaurant.availability == True %}
+            <p>Open</p>
+            {% endif %}
+            {% if restaurant.availability == False %}
+            <p>Closed</p>
+            {% endif %}
 
-<p>
-  <a href="/restaurants/new">New Restaurant</a>
-</p>
 
-<div>
-  {% for restaurant in restaurants %}
-  <div class="restaurant-card">
-      <h3>{{ restaurant.name }} - {{ restaurant.cuisine.cuisine }}</h3>
-      <p>{{ restaurant.address }}</p>
-      <p>{{ restaurant.phone_number }}</p>
-      <p>{{ restaurant.availability }}</p>
-      <a href="/dishes">Menu</a>
-      
-      <section>
-          <a class="edit-link" href="/restaurants/{{ restaurant.id }}/edit">Edit</a>
-          <form action="/restaurants/{{ restaurant.id }}/delete" method="POST">
-            <input type="submit" value="Delete"/>
+        </p>
+        <a class='btn menu' href="/dishes">Menu</a>
+        
+        <div class="button-container">
+            <a class="btn" href="/restaurants/{{ restaurant.id }}/edit">Edit</a>
+            <form action="/restaurants/{{ restaurant.id }}/delete" method="POST">
+            <input class='btn danger' type="submit" value="Delete"/>
         </form>
-    </section>
-</div>
-{% endfor %}
-</div>
+        </div>
+    </div>
+    {% endfor %}
 
+</section>
 
 {% endblock %}

@@ -1,47 +1,53 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Orders</h1>
 
-<p>
-  <a href="/orders/new">New Order</a>
-</p>
-
-{% for order in orders %}
-<p>Order for: {{ order.customer.name }}</p>
 
 <section>
-    <ul>
-        <li>
-            <p>Restaurant: {{order.restaurant.name}}</p>
-        </li>
+    <div class="order-header">
 
-        <li>
-            <p>Order time: {{order.order_timestamp}}</p>
-        </li>
+    <h1>Orders</h1>
 
-        <li>
-            <section>
-                <label for="dishes">Order dishes:</label>
+    <p>
+    <a class="btn" href="/orders/new">New Order</a>
+    </p>
+    </div>
 
-                {% for dish in order_dishes %}
-                {% if dish.order.id == order.id %}
-                <p>{{ dish.dish.name }}</p>
-                {% endif %}
-                {% endfor %}
+    {% for order in orders %}
+    <div class="card">
+        <h3>Order for: {{ order.customer.name }}</h3>
+        <ul>
+            <li>
+                <p>Restaurant: {{order.restaurant.name}}</p>
+            </li>
 
-            </section>
-        </li>
+            <li>
+                <p>Order time: {{order.order_timestamp}}</p>
+            </li>
 
-        <section>
-            <a href="/orders/{{ order.id }}/edit">Edit</a>
-            <form action="/orders/{{ order.id }}/delete" method="POST">
-                <input type="submit" value="Delete"/>
-            </form>
-        </section>
-    </ul>
+            <li>
+                <div>
+                    <label for="dishes">Order dishes:</label>
+
+                    {% for dish in order_dishes %}
+                    {% if dish.order.id == order.id %}
+                    <p>{{ dish.dish.name }}</p>
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+            </li>
+
+            <div class="button-container">
+                <a class="btn" href="/orders/{{ order.id }}/edit">Edit</a>
+                <form action="/orders/{{ order.id }}/delete" method="POST">
+                    <input class="btn danger" type="submit" value="Delete"/>
+                </form>
+            </div>
+        </ul>
+    </div>
+    {% endfor %}
 </section>
-{% endfor %}
 
 
 {% endblock %}

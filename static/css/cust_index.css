@@ -1,0 +1,40 @@
+#index-cust-header{
+    margin: 0;
+    text-align: center;
+    padding: 30px;
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+#new-cust{
+    text-align: center;
+}
+
+#new-cust-link {
+    text-decoration: none;
+    
+}
+
+#single-cust {
+    padding:5px;
+    
+}
+
+#customer-table {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items:  center;
+}
+
+#customer-detail-title{
+    grid-column: 1 / span 2;
+}
+
+/* 
+.restaurant-card{
+    background-color: #e8e8e8;
+    padding: 2em;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 2em; */
+
