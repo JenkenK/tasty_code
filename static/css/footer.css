@@ -1,4 +1,11 @@
 footer {
     background-color: #a1e44d;
-    height: 50px;
+    height: 70px;
+    align-items: center;
+}
+
+footer > p {
+    margin: 0;
+    text-align: center;
+    justify-content: center;
 }
