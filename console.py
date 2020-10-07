@@ -69,3 +69,6 @@ order_dishes1 = OrderDish(order1, cheeseburger)
 order_dish_repository.save(order_dishes1)
 order_dishes2 = OrderDish(order1, doublecheeseburger)
 order_dish_repository.save(order_dishes2)
+
+order_dishes3 = OrderDish(order2, chickenlegend)
+order_dish_repository.save(order_dishes3)
