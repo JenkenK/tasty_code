@@ -1,6 +1,6 @@
 header {
     height: 220px;
-    background-color: #a1e44d
+    background-color: #a1e44d;
 }
 
 #app-name{
@@ -33,36 +33,36 @@ header {
     margin-right: 12px;
 }
 
-body > header > nav > ul > li > a {
+header > nav > ul > li > a {
     text-decoration: none;
 }
 
-body > header > nav > ul > li > a:visited {
+header > nav > ul > li > a:visited {
     color:black;
     transition: 0.5s;
 }
 
-body > header > nav > ul > li > a:hover {
+header > nav > ul > li > a:hover {
     color:grey;
     transition: 0.5s;
 }
 
-body > header > nav > ul > li > a:active {
+header > nav > ul > li > a:active {
     color:#ff5714;
     transition: 0.5s;
 }
 
-body > header > h1 > a {
+header > h1 > a {
     padding: 10px;
     text-decoration: none;
     border: 2px solid black;
 }
 
-body > header > h1 > a:visited {
+header > h1 > a:visited {
     color:black;
 }
 
-body > header > h1 > a {
+header > h1 > a {
     color:black;
 }
 
