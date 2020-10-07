@@ -54,6 +54,6 @@ CREATE TABLE orders (
 
 CREATE TABLE order_dishes(
     id SERIAL PRIMARY KEY,
-    order_id SERIAL REFERENCES orders(id),
-    dish_id SERIAL REFERENCES dishes(id)
+    order_id SERIAL REFERENCES orders(id) ON DELETE CASCADE,
+    dish_id SERIAL REFERENCES dishes(id) ON DELETE CASCADE
 )
