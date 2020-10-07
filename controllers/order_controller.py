@@ -16,8 +16,8 @@ order_blueprint = Blueprint("order", __name__)
 @order_blueprint.route('/orders')
 def orders():
     orders = order_repository.select_all()
-    dishes = order_dish_repository.select_all()
-    return render_template("/orders/index.html", orders = orders, dishes = dishes)
+    order_dishes = order_dish_repository.select_all()
+    return render_template("/orders/index.html", orders = orders, order_dishes = order_dishes)
 
 
 # NEW
@@ -60,7 +60,8 @@ def edit_order(order_id):
     restaurants = restaurant_repository.select_all()
     customers = customer_repository.select_all()
     dishes = dish_repository.select_all()
-    return render_template('orders/edit.html', order=order, restaurants=restaurants, customers=customers, dishes = dishes)
+    order_dishes = order_dish_repository.select_all()
+    return render_template('orders/edit.html', order=order, restaurants=restaurants, customers=customers, dishes = dishes, order_dishes = order_dishes)
     
 
 # UPDATE
