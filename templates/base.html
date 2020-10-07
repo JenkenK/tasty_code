@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CoDe Foodie</title>
+    <title>Tasty CoDe!</title>
+    <link rel = "icon" href = "{{ url_for('static', filename='images/download.png') }}"> 
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 
 <header id="header">
     <h1 id="app-name">
-        <a href="/">CoDe Foodie!</a>
+        <a href="/">
+            <p id="tasty-title">Tasty</p>
+            <p id="code-title">CoDe</p>
+        </a>
     </h1>
     <nav id='nav-bar'>
         <ul id='nav-bar-links'>
@@ -27,12 +32,8 @@
 </header>
 
 <body>
-    <section>
-        {% block content %}
-        
-        {% endblock content %}
-    </section>
-    
+    {% block content %}
+    {% endblock content %}
 </body>
 
 <footer>
